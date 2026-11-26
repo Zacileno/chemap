@@ -27,7 +27,10 @@ interface Props {
 
 const { title, description, aktivni, drobecky } = Astro.props;
 const canonical = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', Astro.site);
-const ogImage = new URL('/img/og-chemap.jpg', Astro.site);
+// The share image must load from the domain where this build actually runs. Until the launch the
+// production domain is chemap.vercel.app; once chemap.cz is added in Vercel it switches automatically.
+const produkcniDomena = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+const ogImage = new URL('/img/og-chemap.jpg', produkcniDomena ? `https://${produkcniDomena}` : Astro.site);
 const site = Astro.site ?? new URL('https://www.chemap.cz');
 const jeUvod = Astro.url.pathname === '/' || Astro.url.pathname === '';
 
