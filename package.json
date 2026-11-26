@@ -9,9 +9,11 @@
     "preview": "astro preview"
   },
   "dependencies": {
+    "@astrojs/vercel": "^11.0.22",
     "@fontsource/comfortaa": "^5.3.0",
     "@fontsource/open-sans": "^5.3.0",
-    "astro": "^7.4.13"
+    "astro": "^7.4.13",
+    "resend": "^6.40.1"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.12",

@@ -8,6 +8,7 @@ import '@fontsource/open-sans/400.css';
 import '@fontsource/open-sans/600.css';
 import '@fontsource/open-sans/700.css';
 import '../styles/global.css';
+import { getSecret } from 'astro:env/server';
 import Hlavicka from '../components/Hlavicka.astro';
 import Paticka from '../components/Paticka.astro';
 
@@ -29,8 +30,7 @@ const { title, description, aktivni, drobecky } = Astro.props;
 const canonical = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', Astro.site);
 // The share image must load from the domain where this build actually runs. Until the launch the
 // production domain is chemap.vercel.app; once chemap.cz is added in Vercel it switches automatically.
-const env = (globalThis as { process?: { env: Record<string, string | undefined> } }).process?.env ?? {};
-const produkcniDomena = env.VERCEL_PROJECT_PRODUCTION_URL;
+const produkcniDomena = getSecret('VERCEL_PROJECT_PRODUCTION_URL');
 const ogImage = new URL('/img/og-chemap.jpg', produkcniDomena ? `https://${produkcniDomena}` : Astro.site);
 const site = Astro.site ?? new URL('https://www.chemap.cz');
 const jeUvod = Astro.url.pathname === '/' || Astro.url.pathname === '';
