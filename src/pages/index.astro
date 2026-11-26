@@ -1,10 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
-import FotoMisto from '../components/FotoMisto.astro';
 import Ikona from '../components/Ikona.astro';
 import IkonaKategorie from '../components/IkonaKategorie.astro';
 import { kategorie } from '../data/katalog';
-import type { KategorieSlug } from '../data/katalog';
 
 const vyhody = [
   'Česká firma',
@@ -16,29 +14,30 @@ const vyhody = [
 interface Blok {
   nadpis: string;
   text: string;
-  ikona: KategorieSlug;
+  /** Image name in /img/uvod (without extension). */
+  foto: string;
 }
 
 const bloky: Blok[] = [
   {
     nadpis: 'Organická rozpouštědla',
     text: 'Organická rozpouštědla se používají pro výrobu nátěrových hmot, lepidel i v textilním průmyslu. Zajišťují správnou konzistenci, přilnavost i efektivní aplikaci. Vyberte si z naší nabídky kvalitních chemických přípravků.',
-    ikona: 'organicka-rozpoustedla',
+    foto: 'organicka-rozpoustedla',
   },
   {
     nadpis: 'Akrylátové a vinylacetátové disperze',
     text: 'Akrylátové a vinylacetátové disperze nachází široké uplatnění v průmyslu – od výroby nátěrových hmot, lepidel a tmelů až po penetrace, šlichtování textilií a výrobu přípravků zamezujících okus stromků zvěří. Získejte vynikající výsledky s našimi produkty.',
-    ikona: 'disperze',
+    foto: 'disperze',
   },
   {
     nadpis: 'Slévárenské přípravky',
     text: 'Slévárenské přípravky jsou nezbytné pro nátěry forem a jader a také separaci a ředění slévárenských nátěrů, kde zajišťují hladký povrch odlitků, minimalizují vady a usnadňují proces odformování. Nabízíme kvalitní produkty, které přispívají k vyšší efektivitě a přesnosti výroby.',
-    ikona: 'produkty-pro-slevarenstvi',
+    foto: 'slevarenstvi',
   },
   {
     nadpis: 'Čistírenská rozpouštědla',
     text: 'Čistírenská rozpouštědla jsou ideální pro standardní i ekologické čištění oděvů, kde efektivně odstraňují nečistoty, oleje a tuky, aniž by poškodily textilní materiály. Prohlédněte si naši nabídku rozpouštědel pro profesionální a ekologicky šetrné čištění.',
-    ikona: 'produkty-pro-cistirny',
+    foto: 'cistirny',
   },
 ];
 ---
@@ -116,7 +115,15 @@ const bloky: Blok[] = [
               <a href="/katalog" class="btn btn--cerne">Katalog produktů</a>
             </div>
             <div class="blok__foto">
-              <FotoMisto ikona={b.ikona} />
+              <img
+                src={`/img/uvod/${b.foto}.webp`}
+                srcset={`/img/uvod/${b.foto}-600.webp 600w, /img/uvod/${b.foto}.webp 1200w`}
+                sizes="(max-width: 767px) 100vw, 50vw"
+                alt={b.nadpis}
+                width="1200"
+                height="900"
+                loading="lazy"
+              />
             </div>
           </div>
         ))
@@ -145,7 +152,15 @@ const bloky: Blok[] = [
       <a href="/katalog" class="btn btn--zlute">Katalog produktů</a>
     </div>
     <div class="o-nas__foto">
-      <FotoMisto ikona="ostatni-chemie" />
+      <img
+        src="/img/uvod/o-nas.webp"
+        srcset="/img/uvod/o-nas-600.webp 500w, /img/uvod/o-nas.webp 1000w"
+        sizes="(max-width: 767px) 100vw, 50vw"
+        alt="Sklad chemických látek – sudy a IBC kontejnery"
+        width="1000"
+        height="1250"
+        loading="lazy"
+      />
     </div>
   </section>
 </Base>

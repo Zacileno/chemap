@@ -691,51 +691,6 @@ h4 {
   }
 }
 
-/* ---------- Photo placeholder ---------- */
-
-.foto-misto {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  min-height: inherit;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.foto-misto--zluta {
-  background: radial-gradient(circle at 50% 45%, #fff27a 0%, var(--zluta) 55%, var(--zluta-tmavsi) 100%);
-  color: var(--cerna);
-}
-
-.foto-misto--seda {
-  background: linear-gradient(160deg, #f6f6f3 0%, #e2e2dd 100%);
-  color: #c9c9c2;
-}
-
-.foto-misto__ikona {
-  width: 42%;
-  max-width: 260px;
-  height: auto;
-  aspect-ratio: 1;
-}
-
-.foto-misto--zluta .foto-misto__ikona {
-  opacity: 0.85;
-}
-
-.foto-misto__popisek {
-  position: absolute;
-  left: 1rem;
-  bottom: 1rem;
-  padding: 0.25rem 0.75rem;
-  border-radius: var(--radius-btn);
-  background: rgba(0, 0, 0, 0.75);
-  color: var(--bila);
-  font-size: 0.75rem;
-}
-
 /* ---------- Page hero (catalogue, contacts, categories) ---------- */
 
 .page-hero {
@@ -1356,5 +1311,44 @@ h4 {
 
   .footer__links {
     gap: 0.25rem 1.5rem;
+  }
+}
+
+/* ---------- Homepage photos ---------- */
+
+.blok__foto,
+.o-nas__foto {
+  position: relative;
+  overflow: hidden;
+}
+
+.blok__foto img,
+.o-nas__foto img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.blok:hover .blok__foto img {
+  transform: scale(1.04);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blok:hover .blok__foto img { transform: none; }
+}
+
+@media (max-width: 767px) {
+  .blok__foto,
+  .blok--obraceny .blok__foto {
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+  }
+
+  .o-nas__foto {
+    min-height: 0;
+    aspect-ratio: 4 / 5;
   }
 }
