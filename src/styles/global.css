@@ -1098,12 +1098,18 @@ h4 {
 }
 
 .kontakt__mrizka {
-  max-width: var(--sirka);
+  max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 4rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
   align-items: start;
+}
+
+.kontakt .h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
 }
 
 @media (max-width: 991px) {
@@ -1118,12 +1124,14 @@ h4 {
 }
 
 .kontakt__jmeno {
-  font-size: 1.15rem;
+  font-family: var(--font-nadpis);
+  font-size: 1.125rem;
   font-weight: 600;
   margin-bottom: 0.25rem;
 }
 
 .kontakt__funkce {
+  font-weight: 300;
   color: var(--seda-text);
   margin-bottom: 0.5rem;
 }
@@ -1155,6 +1163,7 @@ h4 {
 
 .kontakt__info {
   margin-top: 1.25rem;
+  font-weight: 300;
 }
 
 .kontakt__mapa iframe {
