@@ -41,8 +41,10 @@ export interface Produkt {
   zakladniUdaje: Udaj[];
   baleni: Baleni[];
   soubory: Soubor[];
-  /** Client's own product photo, if there is one. */
-  foto?: string;
+  /** Product photo for the detail page (client photo, or the category illustration). */
+  foto: string;
+  /** Smaller version for product cards. */
+  fotoMala: string;
 }
 
 /** Category order as in the original menu. */
@@ -105,9 +107,9 @@ const poradi: readonly string[] = [
   'osakryl-ap-40', 'osakryl-ah-035', 'osakryl-ab-20',
 ];
 
-/** Client's own photos assigned to products. */
-const fotky: Readonly<Record<string, string>> = {
-  xylen: '/img/chemap-sudy-160kg.jpg',
+/** Client's own photos assigned to products: [detail, card]. */
+const fotky: Readonly<Record<string, readonly [string, string]>> = {
+  xylen: ['/img/chemap-sudy-160kg.jpg', '/img/chemap-sudy-160kg-800.jpg'],
 };
 
 interface RawProdukt {
@@ -136,7 +138,11 @@ function prevest(raw: RawProdukt): Produkt {
   if (!isKategorieSlug(raw.kategorie)) {
     throw new Error(`Neznámá kategorie "${raw.kategorie}" u produktu ${raw.slug}`);
   }
-  const foto = fotky[raw.slug];
+  // Generated illustrative photo per category (like the original site), unless the client has a real photo.
+  const [foto, fotoMala] = fotky[raw.slug] ?? [
+    `/img/produkty/${raw.kategorie}.webp`,
+    `/img/produkty/${raw.kategorie}-600.webp`,
+  ];
   return {
     slug: raw.slug,
     nazev: raw.nazev,
@@ -145,7 +151,8 @@ function prevest(raw: RawProdukt): Produkt {
     zakladniUdaje: raw.zakladni_udaje.filter((u) => u.hodnota.trim() !== ''),
     baleni: raw.baleni.filter((b) => [b.obal, b.objem, b.mnozstvi].some((v) => v.trim() !== '')),
     soubory: raw.soubory.map((s) => ({ nazev: s.nazev, url: souborUrl(s.soubor) })),
-    ...(foto ? { foto } : {}),
+    foto,
+    fotoMala,
   };
 }
 

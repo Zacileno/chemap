@@ -1,7 +1,6 @@
 ---
 import type { Produkt } from '../data/katalog';
 import { najdiKategorii } from '../data/katalog';
-import FotoMisto from './FotoMisto.astro';
 import IkonaKategorie from './IkonaKategorie.astro';
 
 interface Props {
@@ -15,13 +14,7 @@ const kat = najdiKategorii(produkt.kategorie);
 <article class="karta">
   <a href={`/produkty/${produkt.slug}`} class="karta__odkaz">
     <div class="karta__foto">
-      {
-        produkt.foto ? (
-          <img src={produkt.foto} alt={produkt.nazev} loading="lazy" width="400" height="300" />
-        ) : (
-          <FotoMisto ikona={produkt.kategorie} varianta="seda" />
-        )
-      }
+      <img src={produkt.fotoMala} alt={produkt.nazev} loading="lazy" width="600" height="450" />
     </div>
     <h4 class="karta__nazev">{produkt.nazev}</h4>
   </a>

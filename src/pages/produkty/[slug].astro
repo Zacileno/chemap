@@ -2,7 +2,6 @@
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import CtaPoradit from '../../components/CtaPoradit.astro';
-import FotoMisto from '../../components/FotoMisto.astro';
 import Ikona from '../../components/Ikona.astro';
 import IkonaKategorie from '../../components/IkonaKategorie.astro';
 import { najdiKategorii, produkty } from '../../data/katalog';
@@ -37,13 +36,7 @@ const maBaleni = produkt.baleni.length > 0;
         {produkt.popis.map((odstavec) => <p>{odstavec}</p>)}
       </div>
       <div class="produkt-hero__foto">
-        {
-          produkt.foto ? (
-            <img src={produkt.foto} alt={produkt.nazev} width="800" height="533" />
-          ) : (
-            <FotoMisto ikona={produkt.kategorie} varianta="seda" />
-          )
-        }
+        <img src={produkt.foto} alt={produkt.nazev} width="1200" height="900" />
       </div>
     </div>
   </section>
