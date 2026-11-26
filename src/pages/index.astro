@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import Ikona from '../components/Ikona.astro';
 import IkonaKategorie from '../components/IkonaKategorie.astro';
 import { kategorie } from '../data/katalog';
+import { seoStranky } from '../data/seo';
 
 const vyhody = [
   'Česká firma',
@@ -16,6 +17,8 @@ interface Blok {
   text: string;
   /** Image name in /img/uvod (without extension). */
   foto: string;
+  /** What is in the picture. */
+  alt: string;
 }
 
 const bloky: Blok[] = [
@@ -23,28 +26,32 @@ const bloky: Blok[] = [
     nadpis: 'Organická rozpouštědla',
     text: 'Organická rozpouštědla se používají pro výrobu nátěrových hmot, lepidel i v textilním průmyslu. Zajišťují správnou konzistenci, přilnavost i efektivní aplikaci. Vyberte si z naší nabídky kvalitních chemických přípravků.',
     foto: 'organicka-rozpoustedla',
+    alt: 'Laboratorní sklo s organickými rozpouštědly na žlutém pozadí',
   },
   {
     nadpis: 'Akrylátové a vinylacetátové disperze',
     text: 'Akrylátové a vinylacetátové disperze nachází široké uplatnění v průmyslu – od výroby nátěrových hmot, lepidel a tmelů až po penetrace, šlichtování textilií a výrobu přípravků zamezujících okus stromků zvěří. Získejte vynikající výsledky s našimi produkty.',
     foto: 'disperze',
+    alt: 'Bílá disperze vylévaná z kádinky',
   },
   {
     nadpis: 'Slévárenské přípravky',
     text: 'Slévárenské přípravky jsou nezbytné pro nátěry forem a jader a také separaci a ředění slévárenských nátěrů, kde zajišťují hladký povrch odlitků, minimalizují vady a usnadňují proces odformování. Nabízíme kvalitní produkty, které přispívají k vyšší efektivitě a přesnosti výroby.',
     foto: 'slevarenstvi',
+    alt: 'Kovový odlitek, formovací směs a štětec se slévárenským nátěrem',
   },
   {
     nadpis: 'Čistírenská rozpouštědla',
     text: 'Čistírenská rozpouštědla jsou ideální pro standardní i ekologické čištění oděvů, kde efektivně odstraňují nečistoty, oleje a tuky, aniž by poškodily textilní materiály. Prohlédněte si naši nabídku rozpouštědel pro profesionální a ekologicky šetrné čištění.',
     foto: 'cistirny',
+    alt: 'Sako v ochranném obalu, složená košile a lahev rozpouštědla',
   },
 ];
 ---
 
 <Base
-  title="CHEMAP, spol. s r.o. | Výroba chemických látek a přípravků - Dašice"
-  description="Jsme přední český výrobce a distributor chemických látek a přípravků. V CHEMAP Dašice nabízíme široký sortiment, technickou podporu a rychlé dodání po celé ČR."
+  title={seoStranky.uvod.title}
+  description={seoStranky.uvod.description}
   aktivni="uvod"
 >
   <div class="molekuly-pozadi" aria-hidden="true"></div>
@@ -119,7 +126,7 @@ const bloky: Blok[] = [
                 src={`/img/uvod/${b.foto}.webp`}
                 srcset={`/img/uvod/${b.foto}-600.webp 600w, /img/uvod/${b.foto}.webp 1200w`}
                 sizes="(max-width: 767px) 100vw, 50vw"
-                alt={b.nadpis}
+                alt={b.alt}
                 width="1200"
                 height="900"
                 loading="lazy"

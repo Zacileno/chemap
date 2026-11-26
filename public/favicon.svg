@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <rect width="256" height="256" fill="#ffe000"/>
+  <g stroke="#000" stroke-width="5.5">
+    <path d="M56 56V200M56 56L128 128L200 200M128 56H200V200M56 200H128" fill="none"/>
+    <g fill="#ffe000">
+      <circle cx="56" cy="56" r="26"/>
+      <circle cx="200" cy="56" r="26"/>
+      <circle cx="56" cy="128" r="26"/>
+      <circle cx="128" cy="128" r="26"/>
+      <circle cx="200" cy="128" r="26"/>
+      <circle cx="56" cy="200" r="26"/>
+      <circle cx="128" cy="200" r="26"/>
+      <circle cx="200" cy="200" r="26"/>
+    </g>
+    <circle cx="128" cy="56" r="26" fill="#000"/>
+  </g>
+</svg>

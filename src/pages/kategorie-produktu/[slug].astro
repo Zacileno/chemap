@@ -5,6 +5,7 @@ import StrankaHero from '../../components/StrankaHero.astro';
 import ProduktKarta from '../../components/ProduktKarta.astro';
 import { kategorie, produktyVKategorii } from '../../data/katalog';
 import type { Kategorie } from '../../data/katalog';
+import { seoKategorie } from '../../data/seo';
 
 export const getStaticPaths = (() =>
   kategorie.map((k) => ({ params: { slug: k.slug }, props: { kat: k } }))) satisfies GetStaticPaths;
@@ -18,8 +19,8 @@ const seznam = produktyVKategorii(kat.slug);
 ---
 
 <Base
-  title={`${kat.nazev} - Dašice | CHEMAP`}
-  description={`${kat.nazev}. Pro více informací se obraťte na specialisty z CHEMAP, spol. s r.o. sídlích v Dašicích u Pardubic.`}
+  title={seoKategorie[kat.slug].title}
+  description={seoKategorie[kat.slug].description}
   aktivni="katalog"
   drobecky={[
     { nazev: 'Katalog produktů', cesta: '/katalog' },

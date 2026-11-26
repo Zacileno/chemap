@@ -121,7 +121,7 @@ const dalsiKategorie: Readonly<Record<string, readonly KategorieSlug[]>> = {
 
 /** Client's own photos assigned to products: [detail, card]. */
 const fotky: Readonly<Record<string, readonly [string, string]>> = {
-  xylen: ['/img/chemap-sudy-160kg.jpg', '/img/chemap-sudy-160kg-800.jpg'],
+  xylen: ['/img/chemap-sudy-160kg.webp', '/img/chemap-sudy-160kg-600.webp'],
 };
 
 interface RawProdukt {

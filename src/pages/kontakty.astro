@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import StrankaHero from '../components/StrankaHero.astro';
 import Ikona from '../components/Ikona.astro';
+import { seoStranky } from '../data/seo';
 
 interface Kontakt {
   nadpis?: string;
@@ -42,8 +43,8 @@ const MAPA =
 ---
 
 <Base
-  title="Kontakty - Dašice | CHEMAP"
-  description="Kontaktujte CHEMAP Dašice pro obchod, technické poradenství a informace o chemických produktech. Rychlá reakce a profesionální přístup."
+  title={seoStranky.kontakty.title}
+  description={seoStranky.kontakty.description}
   aktivni="kontakty"
   drobecky={[{ nazev: 'Kontakty', cesta: '/kontakty' }]}
 >

@@ -3,13 +3,14 @@ import Base from '../layouts/Base.astro';
 import StrankaHero from '../components/StrankaHero.astro';
 import ProduktKarta from '../components/ProduktKarta.astro';
 import { produkty } from '../data/katalog';
+import { seoStranky } from '../data/seo';
 
 const NA_STRANKU = 16;
 ---
 
 <Base
-  title="Katalog chemických produktů - Dašice | CHEMAP"
-  description="Objevte katalog chemických produktů od CHEMAP Dašice – disperze, sorbenty, lepidla, organická rozpouštědla a další přípravky pro průmyslové využití."
+  title={seoStranky.katalog.title}
+  description={seoStranky.katalog.description}
   aktivni="katalog"
   drobecky={[{ nazev: 'Katalog produktů', cesta: '/katalog' }]}
 >

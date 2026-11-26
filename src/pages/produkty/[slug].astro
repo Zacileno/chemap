@@ -6,6 +6,7 @@ import Ikona from '../../components/Ikona.astro';
 import IkonaKategorie from '../../components/IkonaKategorie.astro';
 import { najdiKategorii, produkty } from '../../data/katalog';
 import type { Produkt } from '../../data/katalog';
+import { altFoto, descriptionProduktu, titleProduktu } from '../../data/seo';
 
 export const getStaticPaths = (() =>
   produkty.map((p) => ({ params: { slug: p.slug }, props: { produkt: p } }))) satisfies GetStaticPaths;
@@ -22,8 +23,8 @@ const maBaleni = produkt.baleni.length > 0;
 ---
 
 <Base
-  title={`${produkt.nazev} | Chemap s.r.o. – Dašice`}
-  description={`${produkt.nazev} | Výrobce a distributor chemických látek a přípravků – Chemap`}
+  title={titleProduktu(produkt)}
+  description={descriptionProduktu(produkt)}
   aktivni="katalog"
   drobecky={[
     { nazev: 'Katalog produktů', cesta: '/katalog' },
@@ -50,7 +51,7 @@ const maBaleni = produkt.baleni.length > 0;
         {produkt.popis.map((odstavec) => <p>{odstavec}</p>)}
       </div>
       <div class="produkt-hero__foto">
-        <img src={produkt.foto} alt={produkt.nazev} width="1200" height="900" />
+        <img src={produkt.foto} alt={altFoto(produkt)} width="1200" height="900" />
       </div>
     </div>
   </section>
