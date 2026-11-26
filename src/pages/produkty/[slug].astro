@@ -1,0 +1,114 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Base from '../../layouts/Base.astro';
+import CtaPoradit from '../../components/CtaPoradit.astro';
+import FotoMisto from '../../components/FotoMisto.astro';
+import Ikona from '../../components/Ikona.astro';
+import IkonaKategorie from '../../components/IkonaKategorie.astro';
+import { najdiKategorii, produkty } from '../../data/katalog';
+import type { Produkt } from '../../data/katalog';
+
+export const getStaticPaths = (() =>
+  produkty.map((p) => ({ params: { slug: p.slug }, props: { produkt: p } }))) satisfies GetStaticPaths;
+
+interface Props {
+  produkt: Produkt;
+}
+
+const { produkt } = Astro.props;
+const kat = najdiKategorii(produkt.kategorie);
+const maUdaje = produkt.zakladniUdaje.length > 0;
+const maBaleni = produkt.baleni.length > 0;
+---
+
+<Base
+  title={`${produkt.nazev} | Chemap s.r.o. – Dašice`}
+  description={`${produkt.nazev} | Výrobce a distributor chemických látek a přípravků – Chemap`}
+  aktivni="katalog"
+>
+  <section class="produkt-hero">
+    <div class="produkt-hero__in">
+      <div class="produkt-hero__text">
+        <a href={`/kategorie-produktu/${kat.slug}`} class="stitek">
+          <span class="ikona-kruh ikona-kruh--mala"><IkonaKategorie slug={kat.slug} /></span>
+          {kat.nazev}
+        </a>
+        <h1 class="h1 zluta">{produkt.nazev}</h1>
+        {produkt.popis.map((odstavec) => <p>{odstavec}</p>)}
+      </div>
+      <div class="produkt-hero__foto">
+        {
+          produkt.foto ? (
+            <img src={produkt.foto} alt={produkt.nazev} width="800" height="533" />
+          ) : (
+            <FotoMisto ikona={produkt.kategorie} varianta="seda" />
+          )
+        }
+      </div>
+    </div>
+  </section>
+
+  {
+    (maUdaje || maBaleni) && (
+      <section class="tabulky">
+        {maUdaje && (
+          <table class="tabulka">
+            <thead>
+              <tr>
+                <th colspan="2">Základní údaje</th>
+              </tr>
+            </thead>
+            <tbody>
+              {produkt.zakladniUdaje.map((u) => (
+                <tr>
+                  <td>{u.nazev}</td>
+                  <td class="vpravo">{u.hodnota}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+        {maBaleni && (
+          <table class="tabulka tabulka--obal">
+            <thead>
+              <tr>
+                <th>Obal</th>
+                <th class="stred">Objem obalu</th>
+                <th class="vpravo">Množství v obalu</th>
+              </tr>
+            </thead>
+            <tbody>
+              {produkt.baleni.map((b) => (
+                <tr>
+                  <td>{b.obal}</td>
+                  <td class="stred">{b.objem}</td>
+                  <td class="vpravo">{b.mnozstvi}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+      </section>
+    )
+  }
+
+  {
+    produkt.soubory.length > 0 && (
+      <section class="soubory">
+        <h3 class="h3">Soubory ke stažení</h3>
+        <ul class="soubory__seznam">
+          {produkt.soubory.map((s) => (
+            <li>
+              <a href={s.url} target="_blank" rel="noopener">
+                <Ikona nazev="pdf" class="soubory__ikona" />
+                <span>{s.nazev}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  <CtaPoradit />
+</Base>

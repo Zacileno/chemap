@@ -1,0 +1,183 @@
+---
+import Base from '../layouts/Base.astro';
+import StrankaHero from '../components/StrankaHero.astro';
+import Ikona from '../components/Ikona.astro';
+
+interface Kontakt {
+  nadpis?: string;
+  jmeno: string;
+  funkce?: string;
+  telefon: string;
+  telefonHref: string;
+  email: string;
+}
+
+const lide: Kontakt[] = [
+  {
+    nadpis: 'Obchod, technické poradenství',
+    jmeno: 'Dalibor Műller',
+    telefon: '+420 603 823 916',
+    telefonHref: 'tel:+420603823916',
+    email: 'dalibor.muller@chemap.cz',
+  },
+  {
+    nadpis: 'Vedení společnosti',
+    jmeno: 'Dalibor Műller',
+    funkce: 'Jednatel',
+    telefon: '+420 603 823 916',
+    telefonHref: 'tel:+420603823916',
+    email: 'reditel@chemap.cz',
+  },
+  {
+    jmeno: 'Vladimír Čech',
+    funkce: 'Zmocněnec pro jakost, technik, sklad',
+    telefon: '+420 605 299 171',
+    telefonHref: 'tel:+420605299171',
+    email: 'vladimir.cech@chemap.cz',
+  },
+];
+
+const MAPA =
+  'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2563.6544656529572!2d15.896006312136599!3d50.01783131830014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470dcedc2d309aeb%3A0x50fecfd6c1e78f42!2sChemap%2C%20spol.%20S%20R.o.!5e0!3m2!1scs!2scz!4v1754509452384!5m2!1scs!2scz';
+---
+
+<Base
+  title="Kontakty - Dašice | CHEMAP"
+  description="Kontaktujte CHEMAP Dašice pro obchod, technické poradenství a informace o chemických produktech. Rychlá reakce a profesionální přístup."
+  aktivni="kontakty"
+>
+  <StrankaHero
+    nadpis="Kontakty"
+    podnadpis="Máte dotazy, připomínky anebo zájem o naše služby? Neváhejte nás kontaktovat!"
+  />
+
+  <section class="kontakt">
+    <div class="kontakt__mrizka">
+      <div class="kontakt__lide">
+        {
+          lide.map((k) => (
+            <div class="kontakt__osoba">
+              {k.nadpis && <h2 class="h3">{k.nadpis}</h2>}
+              <p class="kontakt__jmeno">{k.jmeno}</p>
+              {k.funkce && <p class="kontakt__funkce">{k.funkce}</p>}
+              <ul class="kontakt__seznam">
+                <li>
+                  <a href={k.telefonHref}>
+                    <Ikona nazev="telefon" class="kontakt__ikona" />
+                    {k.telefon}
+                  </a>
+                </li>
+                <li>
+                  <a href={`mailto:${k.email}`}>
+                    <Ikona nazev="email" class="kontakt__ikona" />
+                    {k.email}
+                  </a>
+                </li>
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+
+      <form class="formular" method="post" action="/api/kontakt" data-formular novalidate>
+        <label class="formular__pole">
+          <span>Jméno</span>
+          <input type="text" name="jmeno" maxlength="256" required autocomplete="name" />
+        </label>
+        <div class="formular__radek">
+          <label class="formular__pole">
+            <span>Telefon</span>
+            <input type="tel" name="telefon" maxlength="256" autocomplete="tel" />
+          </label>
+          <label class="formular__pole">
+            <span>E-mail</span>
+            <input type="email" name="email" maxlength="256" required autocomplete="email" />
+          </label>
+        </div>
+        <label class="formular__pole">
+          <span>Zpráva</span>
+          <textarea name="zprava" maxlength="5000" rows="6" required></textarea>
+        </label>
+        <label class="formular__souhlas">
+          <input type="checkbox" name="gdpr" required />
+          <span
+            >Odesláním formuláře souhlasím se zpracováním <a
+              href="/soubory/zasady-ochrany-osobnich-udaju-chemap.pdf"
+              target="_blank"
+              rel="noopener">Osobních údajů</a
+            ></span
+          >
+        </label>
+        <input type="text" name="web" class="formular__past" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <button type="submit" class="btn btn--zlute">Odeslat</button>
+        <p class="formular__zprava formular__zprava--ok" data-ok hidden>Děkujeme! Vaše zpráva byla úspěšně odeslána.</p>
+        <p class="formular__zprava formular__zprava--chyba" data-chyba hidden>
+          Ups! Něco se pokazilo. Zkuste formulář odeslat znovu.
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <section class="kontakt kontakt--sidlo">
+    <div class="kontakt__mrizka">
+      <div class="kontakt__osoba">
+        <h2 class="h3">Sídlo společnosti</h2>
+        <p class="kontakt__jmeno">CHEMAP, spol. s r.o.</p>
+        <ul class="kontakt__seznam">
+          <li>
+            <a href="https://maps.app.goo.gl/4EtPqzZmh5h2DM2z9" target="_blank" rel="noopener">
+              <Ikona nazev="mapa" class="kontakt__ikona" />
+              <span>Dašice 475<br />533 03 Dašice</span>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:chemap@chemap.cz">
+              <Ikona nazev="email" class="kontakt__ikona" />
+              chemap@chemap.cz
+            </a>
+          </li>
+        </ul>
+        <p class="kontakt__info">
+          <strong>Fakturační údaje</strong><br />
+          <strong>IČ:</strong> 25280520<br />
+          <strong>DIČ:</strong> CZ25280520
+        </p>
+        <p class="kontakt__info">
+          Firma je zapsaná v obchodním rejstříku, vedeném krajským soudem v Hradci Králové, oddíl C, vložka 12492
+        </p>
+      </div>
+      <div class="kontakt__mapa">
+        <iframe
+          src={MAPA}
+          title="Mapa – CHEMAP, Dašice 475"
+          width="100%"
+          height="450"
+          style="border:0"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('[data-formular]');
+  const ok = document.querySelector<HTMLElement>('[data-ok]');
+  const chyba = document.querySelector<HTMLElement>('[data-chyba]');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+    if (ok) ok.hidden = true;
+    if (chyba) chyba.hidden = true;
+    try {
+      const res = await fetch(form.action, { method: 'POST', body: new FormData(form) });
+      if (!res.ok) throw new Error(String(res.status));
+      form.reset();
+      if (ok) ok.hidden = false;
+    } catch {
+      if (chyba) chyba.hidden = false;
+    }
+  });
+</script>

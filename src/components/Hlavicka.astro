@@ -1,0 +1,63 @@
+---
+import { kategorie, TELEFON, TELEFON_HREF } from '../data/katalog';
+import Ikona from './Ikona.astro';
+
+interface Props {
+  aktivni?: 'uvod' | 'katalog' | 'kontakty' | undefined;
+}
+
+const { aktivni } = Astro.props;
+---
+
+<header class="nav" data-nav>
+  <div class="nav__in">
+    <a href="/" class="nav__logo" aria-label="CHEMAP – úvod">
+      <img src="/img/logo.png" alt="CHEMAP chemické produkty" width="186" height="62" />
+    </a>
+
+    <nav class="nav__menu" id="hlavni-menu" aria-label="Hlavní menu">
+      <a href="/" class:list={['nav__link', { 'is-active': aktivni === 'uvod' }]}>Úvod</a>
+      <div class="nav__dropdown">
+        <div class="nav__dropdown-toggle">
+          <a href="/katalog" class:list={['nav__link', { 'is-active': aktivni === 'katalog' }]}
+            >Katalog produktů</a
+          >
+          <button type="button" class="nav__chevron" aria-label="Zobrazit kategorie" aria-expanded="false" data-dropdown-toggle>
+            <Ikona nazev="sipka-dolu" />
+          </button>
+        </div>
+        <div class="nav__dropdown-list">
+          {kategorie.map((k) => <a href={`/kategorie-produktu/${k.slug}`}>{k.nazev}</a>)}
+        </div>
+      </div>
+      <a href="/kontakty" class:list={['nav__link', { 'is-active': aktivni === 'kontakty' }]}>Kontakty</a>
+    </nav>
+
+    <div class="nav__right">
+      <a href={TELEFON_HREF} class="nav__phone">
+        <Ikona nazev="telefon" class="nav__phone-icon" />
+        <span>{TELEFON}</span>
+      </a>
+      <button type="button" class="nav__burger" aria-label="Menu" aria-controls="hlavni-menu" aria-expanded="false" data-burger>
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<script>
+  const nav = document.querySelector<HTMLElement>('[data-nav]');
+  const burger = document.querySelector<HTMLButtonElement>('[data-burger]');
+  const toggle = document.querySelector<HTMLButtonElement>('[data-dropdown-toggle]');
+
+  burger?.addEventListener('click', () => {
+    const open = nav?.classList.toggle('is-open') ?? false;
+    burger.setAttribute('aria-expanded', String(open));
+  });
+
+  toggle?.addEventListener('click', () => {
+    const dropdown = toggle.closest('.nav__dropdown');
+    const open = dropdown?.classList.toggle('is-open') ?? false;
+    toggle.setAttribute('aria-expanded', String(open));
+  });
+</script>

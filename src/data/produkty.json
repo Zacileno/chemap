@@ -1,0 +1,2050 @@
+[
+ {
+  "slug": "aceton-technicky",
+  "nazev": "Aceton technický",
+  "kategorie": "organicka-rozpoustedla",
+  "popis": [
+   "Ostatní názvy: 2-propanon, propan-2-on, ketopropan, dimetylketon"
+  ],
+  "zakladni_udaje": [
+   {
+    "nazev": "ADR",
+    "hodnota": "UN 1090, 3, II"
+   },
+   {
+    "nazev": "ES",
+    "hodnota": "200-662-2"
+   },
+   {
+    "nazev": "CAS",
+    "hodnota": "67-64-1"
+   },
+   {
+    "nazev": "Concentrate (%)",
+    "hodnota": "> 99"
+   },
+   {
+    "nazev": "Indexové číslo",
+    "hodnota": "606-001-00-8"
+   }
+  ],
+  "baleni": [
+   {
+    "obal": "Sud ocelový",
+    "objem": "200 l",
+    "mnozstvi": "140 kg"
+   },
+   {
+    "obal": "IBC kontejner",
+    "objem": "1 000 l",
+    "mnozstvi": "700 kg"
+   },
+   {
+    "obal": "Autocisterna",
+    "objem": "",
+    "mnozstvi": "5 000 – 24 000 kg"
+   },
+   {
+    "obal": "Železniční cisterna",
+    "objem": "",
+    "mnozstvi": "30 000 – 42 000 kg"
+   }
+  ],
+  "soubory": [
+   {
+    "nazev": "Technická specifikace",
+    "soubor": "6856834edd1f2354ccc6ece0_Aceton_ts (1).pdf"
+   }
+  ]
+ },
+ {
+  "slug": "aktivni-uhli-cw-20",
+  "nazev": "Aktivní uhlí CW-20",
+  "kategorie": "sorbenty-a-filtrace",
+  "popis": [],
+  "zakladni_udaje": [],
+  "baleni": [],
+  "soubory": []
+ },
+ {
+  "slug": "aktivni-uhli-k-814",
+  "nazev": "Aktivní uhlí K 814",
+  "kategorie": "sorbenty-a-filtrace",
+  "popis": [],
+  "zakladni_udaje": [],
+  "baleni": [],
+  "soubory": []
+ },
+ {
+  "slug": "aktivni-uhli-k-835",
+  "nazev": "Aktivní uhlí K 835",
+  "kategorie": "sorbenty-a-filtrace",
+  "popis": [],
+  "zakladni_udaje": [],
+  "baleni": [],
+  "soubory": []
+ },
+ {
+  "slug": "aktivni-uhli-s-835",
+  "nazev": "Aktivní uhlí S 835",
+  "kategorie": "sorbenty-a-filtrace",
+  "popis": [],
+  "zakladni_udaje": [],
+  "baleni": [],
+  "soubory": []
+ },
+ {
+  "slug": "aktivni-uhli-sc-40",
+  "nazev": "Aktivní uhlí SC 40",
+  "kategorie": "sorbenty-a-filtrace",
+  "popis": [],
+  "zakladni_udaje": [],
+  "baleni": [],
+  "soubory": []
+ },
+ {
+  "slug": "aktivni-uhli-th-90g-700",
+  "nazev": "Aktivní uhlí TH 90G-700",
+  "kategorie": "sorbenty-a-filtrace",
+  "popis": [],
+  "zakladni_udaje": [],
+  "baleni": [],
+  "soubory": []
+ },
+ {
+  "slug": "antitox-900",
+  "nazev": "Antitox 900",
+  "kategorie": "ostatni-chemie",
+  "popis": [
+   "Netoxický cementační prášek pro cementaci v tuhém prostředí."
+  ],
+  "zakladni_udaje": [
+   {
+    "nazev": "ES",
+    "hodnota": "207-838-8"
+   },
+   {
+    "nazev": "CAS",
+    "hodnota": "497-19-8"
+   },
+   {
+    "nazev": "Concentrate (%)",
+    "hodnota": "2 – 3"
+   }
+  ],
+  "baleni": [
+   {
+    "obal": "Pytel",
+    "objem": "",
+    "mnozstvi": "20 kg"
+   }
+  ],
+  "soubory": [
+   {
+    "nazev": "Technická specifikace",
+    "soubor": "685698a7587cd90b7dcafd89_Antitox_900_ts.pdf"
+   }
+  ]
+ },
+ {
+  "slug": "atril-spl",
+  "nazev": "Atril SPL",
+  "kategorie": "produkty-pro-slevarenstvi",
+  "popis": [],
+  "zakladni_udaje": [],
+  "baleni": [],
+  "soubory": []
+ },
+ {
+  "slug": "butylacetat",
+  "nazev": "Butylacetát",
+  "kategorie": "organicka-rozpoustedla",
+  "popis": [
+   "Ostatní názvy: octan butylnatý, butylester kyseliny octové"
+  ],
+  "zakladni_udaje": [
+   {
+    "nazev": "ADR",
+    "hodnota": "UN 1123, 3, III"
+   },
+   {
+    "nazev": "ES",
+    "hodnota": "204-658-1"
+   },
+   {
+    "nazev": "CAS",
+    "hodnota": "123-86-4"
+   },
+   {
+    "nazev": "Concentrate (%)",
+    "hodnota": "> 98"
+   },
+   {
+    "nazev": "Indexové číslo",
+    "hodnota": "607-025-00-1"
+   }
+  ],
+  "baleni": [
+   {
+    "obal": "Sud",
+    "objem": "200 l",
+    "mnozstvi": "160 kg"
+   },
+   {
+    "obal": "IBC kontejner",
+    "objem": "1 000 l",
+    "mnozstvi": "800 kg"
+   },
+   {
+    "obal": "Autocisterna",
+    "objem": "",
+    "mnozstvi": "5 000 – 24 000 kg"
+   },
+   {
+    "obal": "Železniční cisterna",
+    "objem": "",
+    "mnozstvi": "30 000 – 42 000 kg"
+   }
+  ],
+  "soubory": [
+   {
+    "nazev": "Technická specifikace",
+    "soubor": "685683ff69a2cbbbcd963eaf_Butylacetat_ts.pdf"
+   }
+  ]
+ },
+ {
+  "slug": "butylalkohol",
+  "nazev": "Butylalkohol",
+  "kategorie": "organicka-rozpoustedla",
+  "popis": [
+   "Ostatní názvy: butanol, n-butanol, butan-1-ol, n-butylalkohol"
+  ],
+  "zakladni_udaje": [
+   {
+    "nazev": "ADR",
+    "hodnota": "UN 1120, 3, III"
+   },
+   {
+    "nazev": "ES",
+    "hodnota": "200-751-6"
+   },
+   {
+    "nazev": "CAS",
+    "hodnota": "71-36-3"
+   },
+   {
+    "nazev": "Concentrate (%)",
+    "hodnota": "99,6"
+   },
+   {
+    "nazev": "Indexové číslo",
+    "hodnota": "603-004-00-6"
+   }
+  ],
+  "baleni": [
+   {
+    "obal": "Sud ocelový",
+    "objem": "200 l",
+    "mnozstvi": "140 kg"
+   },
+   {
+    "obal": "IBC kontejner",
+    "objem": "1 000 l",
+    "mnozstvi": "700 kg"
+   },
+   {
+    "obal": "Autocisterna",
+    "objem": "",
+    "mnozstvi": "5 000 – 24 000 kg"
+   },
+   {
+    "obal": "Železniční cisterna",
+    "objem": "",
+    "mnozstvi": "30 000 – 42 000 kg"
+   }
+  ],
+  "soubory": [
+   {
+    "nazev": "Technická specifikace",
+    "soubor": "6856846f5ab7d5dd1ba74afe_n-Butanol_ts.pdf"
+   }
+  ]
+ },
+ {
+  "slug": "chemlep",
+  "nazev": "Chemlep",
+  "kategorie": "produkty-pro-slevarenstvi",
+  "popis": [],
+  "zakladni_udaje": [],
+  "baleni": [],
+  "soubory": []
+ },
+ {
+  "slug": "chemsol-emi",
+  "nazev": "Chemsol EMI",
+  "kategorie": "produkty-pro-slevarenstvi",
+  "popis": [
+   "Ostatní názvy: lihové ředidlo",
+   "Aplikace: Ředidlo pro slévárenské lihové nátěry s vyšším obsahem alkoholů."
+  ],
+  "zakladni_udaje": [
+   {
+    "nazev": "ADR",
+    "hodnota": "333 l"
+   },
+   {
+    "nazev": "ES",
+    "hodnota": "200-662-2"
+   },
+   {
+    "nazev": "UN",
+    "hodnota": "1993"
+   }
+  ],
+  "baleni": [
+   {
+    "obal": "PE kanystr á 10 l",
+    "objem": "7 kg",
+    "mnozstvi": "na paletě EUR 48 kanystrů"
+   },
+   {
+    "obal": "Plechový kbelík á 20 l",
+    "objem": "15 kg",
+    "mnozstvi": "na paletě EUR 12 kbelíků"
+   },
+   {
+    "obal": "Sud á 200 l",
+    "objem": "140 kg",
+    "mnozstvi": "na paletě EUR 2 sudy"
+   },
+   {
+    "obal": "IBC kontejner á 1000 l",
+    "objem": "900 kg",
+    "mnozstvi": ""
+   }
+  ],
+  "soubory": [
+   {
+    "nazev": "Technická specifikace",
+    "soubor": "6856a89d0a449124ec344f50_Chemsol_EMI_ts.pdf"
+   }
+  ]
+ },
+ {
+  "slug": "chlornan-sodny",
+  "nazev": "Chlornan sodný",
+  "kategorie": "produkty-pro-cistirny",
+  "popis": [
+   "Roztok chlornanu sodného, běžně známý jako chlorové bělidlo, se používá k dezinfekci, jako bělicí činidlo, nebo k úpravě vody."
+  ],
+  "zakladni_udaje": [
+   {
+    "nazev": "ADR",
+    "hodnota": "UN 1791, 8, II"
+   },
+   {
+    "nazev": "ES",
+    "hodnota": "231-668-3"
+   },
+   {
+    "nazev": "CAS",
+    "hodnota": "7681-52-9"
+   },
+   {
+    "nazev": "Concentrate (%)",
+    "hodnota": "12,3"
+   },
+   {
+    "nazev": "Indexové číslo",
+    "hodnota": "017-011-00-1"
+   }
+  ],
+  "baleni": [
+   {
+    "obal": "Soudek",
+    "objem": "50 l",
+    "mnozstvi": "60 kg"
+   }
+  ],
+  "soubory": [
+   {
+    "nazev": "Technická specifikace",
+    "soubor": "68569a9cf78c9f446ad207e8_Chlornan_sodny_ts.pdf"
+   }
+  ]
+ },
+ {
+  "slug": "destilovana-voda",
+  "nazev": "Destilovaná voda",
+  "kategorie": "ostatni-chemie",
+  "popis": [],
+  "zakladni_udaje": [],
+  "baleni": [],
+  "soubory": []
+ },
+ {
+  "slug": "etylacetat",
+  "nazev": "Etylacetát",
+  "kategorie": "organicka-rozpoustedla",
+  "popis": [
+   "Ostatní názvy: octan etylnatý, ethylester kyseliny octové, ethyl acetate"
+  ],
+  "zakladni_udaje": [
+   {
+    "nazev": "ADR",
+    "hodnota": "UN 1173, 3, II"
+   },
+   {
+    "nazev": "ES",
+    "hodnota": "203-500-4"
+   },
+   {
+    "nazev": "CAS",
+    "hodnota": "141-78-6"
+   },
+   {
+    "nazev": "Concentrate (%)",
+    "hodnota": "max. 99,2"
+   },
+   {
+    "nazev": "Indexové číslo",
+    "hodnota": "607-022-00-5"
+   }
+  ],
+  "baleni": [
+   {
+    "obal": "Sud",
+    "objem": "200 l",
+    "mnozstvi": "160 kg"
+   },
+   {
+    "obal": "IBC kontejner",
+    "objem": "1 000 l",
+    "mnozstvi": "800 kg"
+   },
+   {
+    "obal": "Autocisterna",
+    "objem": "",
+    "mnozstvi": "5 000 – 24 000 kg"
+   },
+   {
+    "obal": "Železniční cisterna",
+    "objem": "",
+    "mnozstvi": "30 000 – 42 000 kg"
+   }
+  ],
+  "soubory": [
+   {
+    "nazev": "Technická specifikace",
+    "soubor": "685684d683e3c6a3707226bd_Etylacetat_ts.pdf"
+   }
+  ]
+ },
+ {
+  "slug": "fepren-tp-303",
+  "nazev": "Fepren TP 303",
+  "kategorie": "ostatni-chemie",
+  "popis": [],
+  "zakladni_udaje": [],
+  "baleni": [],
+  "soubory": []
+ },
+ {
+  "slug": "isopar---h",
+  "nazev": "ISOPAR – H",
+  "kategorie": "organicka-rozpoustedla",
+  "popis": [
+   "Isopar – H je syntetická kapalina neobsahující halogeny. Je určená zejména pro čištění a odmašťování, například pro čištění oděvů, kde Isopar – H může v mnoha případech úspěšně nahradit perchloretylen."
+  ],
+  "zakladni_udaje": [
+   {
+    "nazev": "ADR",
+    "hodnota": "UN 3295, 3, II"
+   },
+   {
+    "nazev": "ES",
+    "hodnota": "232-455-8"
+   },
+   {
+    "nazev": "CAS",
+    "hodnota": "8042-47-5"
+   },
+   {
+    "nazev": "Concentrate (%)",
+    "hodnota": "> 99"
+   }
+  ],
+  "baleni": [
+   {
+    "obal": "Kanystr",
+    "objem": "10 l",
+    "mnozstvi": "10 l"
+   },
+   {
+    "obal": "Soudek",
+    "objem": "40 l",
+    "mnozstvi": "40 l"
+   },
+   {
+    "obal": "IBC kontejner",
+    "objem": "1000 l",
+    "mnozstvi": "1000 l"
+   }
+  ],
+  "soubory": [
+   {
+    "nazev": "Technická specifikace",
+    "soubor": "685685630dd8fe7d919547f6_Isopar_H_ts.pdf"
+   }
+  ]
+ },
+ {
+  "slug": "isopropylalkohol",
+  "nazev": "Isopropylalkohol",
+  "kategorie": "organicka-rozpoustedla",
+  "popis": [
+   "Ostatní názvy: izopropylalkohol, propan 2-ol, propylalkohol, isopropanol, izopropanol"
+  ],
+  "zakladni_udaje": [
+   {
+    "nazev": "ADR",
+    "hodnota": "UN 1219, 3, II"
+   },
+   {
+    "nazev": "ES",
+    "hodnota": "200-661-7"
+   },
+   {
+    "nazev": "CAS",
+    "hodnota": "67-63-0"
+   },
+   {
+    "nazev": "Concentrate (%)",
+    "hodnota": "> 99.7"
+   },
+   {
+    "nazev": "Indexové číslo",
+    "hodnota": "603-117-00-0"
+   }
+  ],
+  "baleni": [
+   {
+    "obal": "Sud ocelový",
+    "objem": "200 l",
+    "mnozstvi": "140 kg"
+   },
+   {
+    "obal": "IBC kontejner",
+    "objem": "1 000 l",
+    "mnozstvi": "700 kg"
+   },
+   {
+    "obal": "Autocisterna",
+    "objem": "",
+    "mnozstvi": "5 000 – 24 000 kg"
+   },
+   {
+    "obal": "Železniční cisterna",
+    "objem": "",
+    "mnozstvi": "30 000 – 42 000 kg"
+   }
+  ],
+  "soubory": [
+   {
+    "nazev": "Technická specifikace",
+    "soubor": "685685edb11e9d5a73d12cd2_Isopropyalkohol_ts.pdf"
+   }
+  ]
+ },
+ {
+  "slug": "kalafuna-mleta",
+  "nazev": "Kalafuna mletá",
+  "kategorie": "ostatni-chemie",
+  "popis": [],
+  "zakladni_udaje": [],
+  "baleni": [],
+  "soubory": []
+ },
+ {
+  "slug": "licidlo-a",
+  "nazev": "Líčidlo A",
+  "kategorie": "produkty-pro-slevarenstvi",
+  "popis": [],
+  "zakladni_udaje": [],
+  "baleni": [],
+  "soubory": []
+ },
+ {
+  "slug": "lih-kvasny-obecne-denaturovany-95",
+  "nazev": "Líh kvasný obecně denaturovaný 95%",
+  "kategorie": "organicka-rozpoustedla",
+  "popis": [],
+  "zakladni_udaje": [],
+  "baleni": [],
+  "soubory": []
+ },
+ {
+  "slug": "lih-kvasny-obecne-denaturovany-eur",
+  "nazev": "Líh kvasný obecně denaturovaný EUR",
+  "kategorie": "organicka-rozpoustedla",
+  "popis": [],
+  "zakladni_udaje": [],
+  "baleni": [],
+  "soubory": []
+ },
+ {
+  "slug": "metylalkohol",
+  "nazev": "Metylalkohol",
+  "kategorie": "organicka-rozpoustedla",
+  "popis": [
+   "Ostatní názvy: metanol, metylalkohol, methylalkohol, karbinol"
+  ],
+  "zakladni_udaje": [
+   {
+    "nazev": "ADR",
+    "hodnota": "UN 1230, 3 (6.1), II"
+   },
+   {
+    "nazev": "ES",
+    "hodnota": "200-695-6"
+   },
+   {
+    "nazev": "CAS",
+    "hodnota": "67-56-1"
+   },
+   {
+    "nazev": "Concentrate (%)",
+    "hodnota": "99,9"
+   },
+   {
+    "nazev": "Indexové číslo",
+    "hodnota": "603-001-00-X"
+   }
+  ],
+  "baleni": [
+   {
+    "obal": "Sud ocelový",
+    "objem": "200 l",
+    "mnozstvi": "140 kg"
+   },
+   {
+    "obal": "IBC kontejner",
+    "objem": "1 000 l",
+    "mnozstvi": "700 kg"
+   },
+   {
+    "obal": "Autocisterna",
+    "objem": "",
+    "mnozstvi": "5 000 – 24 000 kg"
+   },
+   {
+    "obal": "Železniční cisterna",
+    "objem": "",
+    "mnozstvi": "30 000 – 42 000 kg"
+   }
+  ],
+  "soubory": [
+   {
+    "nazev": "Technická specifikace",
+    "soubor": "685693eb3e179b79c7fb16df_Metanol_ts.pdf"
+   }
+  ]
+ },
+ {
+  "slug": "metylenchlorid",
+  "nazev": "Metylenchlorid",
+  "kategorie": "organicka-rozpoustedla",
+  "popis": [
+   "Ostatní názvy: dichlormetan, dichlormethan"
+  ],
+  "zakladni_udaje": [
+   {
+    "nazev": "ADR",
+    "hodnota": "UN 1593, 6.1, III"
+   },
+   {
+    "nazev": "ES",
+    "hodnota": "200-838-9"
+   },
+   {
+    "nazev": "CAS",
+    "hodnota": "75-09-2"
+   },
+   {
+    "nazev": "Concentrate (%)",
+    "hodnota": "100"
+   },
+   {
+    "nazev": "Indexové číslo",
+    "hodnota": "602-004-00-3"
+   }
+  ],
+  "baleni": [
+   {
+    "obal": "Sud ocelový",
+    "objem": "200 l",
+    "mnozstvi": "230 kg"
+   },
+   {
+    "obal": "IBC kontejner",
+    "objem": "1 000 l",
+    "mnozstvi": "1150 kg"
+   },
+   {
+    "obal": "Autocisterna",
+    "objem": "",
+    "mnozstvi": "5 000 – 24 000 kg"
+   },
+   {
+    "obal": "Železniční cisterna",
+    "objem": "",
+    "mnozstvi": "30 000 – 50 000 kg"
+   }
+  ],
+  "soubory": [
+   {
+    "nazev": "Technická specifikace",
+    "soubor": "6856946b3f642c0dc359204c_Methylenchlorid_ts.pdf"
+   }
+  ]
+ },
+ {
+  "slug": "metyletylketon",
+  "nazev": "Metyletylketon",
+  "kategorie": "organicka-rozpoustedla",
+  "popis": [
+   "Ostatní názvy: etylmetylketon, methylethylketon, ethylmethylketon, butanon"
+  ],
+  "zakladni_udaje": [
+   {
+    "nazev": "ADR",
+    "hodnota": "UN 1193, 3, II"
+   },
+   {
+    "nazev": "ES",
+    "hodnota": "201-159-0"
+   },
+   {
+    "nazev": "CAS",
+    "hodnota": "78-93-3"
+   },
+   {
+    "nazev": "Concentrate (%)",
+    "hodnota": "99"
+   },
+   {
+    "nazev": "Indexové číslo",
+    "hodnota": "606-002-00-3"
+   }
+  ],
+  "baleni": [
+   {
+    "obal": "Sud ocelový",
+    "objem": "200 l",
+    "mnozstvi": "140 kg"
+   },
+   {
+    "obal": "IBC kontejner",
+    "objem": "1 000 l",
+    "mnozstvi": "700 kg"
+   },
+   {
+    "obal": "Autocisterna",
+    "objem": "",
+    "mnozstvi": "5 000 – 24 000 kg"
+   },
+   {
+    "obal": "Železniční cisterna",
+    "objem": "",
+    "mnozstvi": "30 000 – 42 000 kg"
+   }
+  ],
+  "soubory": [
+   {
+    "nazev": "Technická specifikace",
+    "soubor": "6856955df78ecc554cfb8806_Metyletylketon_ts.pdf"
+   }
+  ]
+ },
+ {
+  "slug": "molit-1400-szg",
+  "nazev": "Molit 1400 SZG",
+  "kategorie": "produkty-pro-slevarenstvi",
+  "popis": [
+   "Ostatní názvy: alumosilikátový alkoholový nátěr",
+   "Aplikace: Nátěr je vyvinut pro všechny druhy forem a jádra používané ve slévárenství pro odlitky šedé, tvárné a temperované litiny, neželezných kovů. Je vhodný i pro členité odlitky vyžadující co nejlepší zachování jejich tvarů."
+  ],
+  "zakladni_udaje": [
+   {
+    "nazev": "ADR",
+    "hodnota": "333 l"
+   },
+   {
+    "nazev": "ES",
+    "hodnota": "200-662-2"
+   },
+   {
+    "nazev": "UN",
+    "hodnota": "1993"
+   }
+  ],
+  "baleni": [
+   {
+    "obal": "Plechový kbelík á 20 l",
+    "objem": "25 kg",
+    "mnozstvi": "na paletě EUR 12 kbelíků"
+   },
+   {
+    "obal": "Plechový kbelík á 30 l",
+    "objem": "50 kg",
+    "mnozstvi": "na paletě EUR 6 kbelíků"
+   }
+  ],
+  "soubory": [
+   {
+    "nazev": "Technická specifikace",
+    "soubor": "6856a9f868ab402343eca710_Molit_1400_SZG_ts.pdf"
+   }
+  ]
+ },
+ {
+  "slug": "molit-1400-szg2",
+  "nazev": "Molit 1400 SZG2",
+  "kategorie": "produkty-pro-slevarenstvi",
+  "popis": [
+   "Ostatní názvy: alumosilikátový alkoholový nátěr",
+   "Nátěr je vyvinut pro všechny druhy forem a jádra používané ve slévárenství pro odlitky šedé, tvárné a temperované litiny, neželezných kovů. Je vhodný i pro členité odlitky vyžadující co nejlepší zachování jejich tvarů. Výhodou je rychlejší vysychání i bez zapálení."
+  ],
+  "zakladni_udaje": [
+   {
+    "nazev": "ADR",
+    "hodnota": "333 l"
+   },
+   {
+    "nazev": "ES",
+    "hodnota": "200-662-2"
+   },
+   {
+    "nazev": "UN",
+    "hodnota": "1993"
+   }
+  ],
+  "baleni": [
+   {
+    "obal": "Plechový kbelík á 20 l",
+    "objem": "25 kg",
+    "mnozstvi": "na paletě EUR 12 kbelíků"
+   },
+   {
+    "obal": "Plechový kbelík á 30 l",
+    "objem": "50 kg",
+    "mnozstvi": "na paletě EUR 6 kbelíků"
+   }
+  ],
+  "soubory": [
+   {
+    "nazev": "Technická specifikace",
+    "soubor": "686bdf5f32b4e100bae353a4_Molit_1400_SZG2_ts (1).pdf"
+   }
+  ]
+ },
+ {
+  "slug": "molit-1400-szg3",
+  "nazev": "Molit 1400 SZG3",
+  "kategorie": "produkty-pro-slevarenstvi",
+  "popis": [
+   "Ostatní názvy: alumosilikátový alkoholový nátěr",
+   "Nátěr je vyvinut pro všechny druhy forem a jádra používané ve slévárenství pro větší a silnostěnné odlitky šedé, tvárné a temperované litiny, neželezných kovů."
+  ],
+  "zakladni_udaje": [
+   {
+    "nazev": "ADR",
+    "hodnota": "333 l"
+   },
+   {
+    "nazev": "ES",
+    "hodnota": "200-662-2"
+   },
+   {
+    "nazev": "UN",
+    "hodnota": "1993"
+   }
+  ],
+  "baleni": [
+   {
+    "obal": "Plechový kbelík á 20 l",
+    "objem": "25 kg",
+    "mnozstvi": "na paletě EUR 12 kbelíků"
+   },
+   {
+    "obal": "Plechový kbelík á 30 l",
+    "objem": "50 kg",
+    "mnozstvi": "na paletě EUR 6 kbelíků"
+   }
+  ],
+  "soubory": [
+   {
+    "nazev": "Technická specifikace",
+    "soubor": "686bdfcdf4b310a3d6c70ce2_Molit_1400_SZG3_ts.pdf"
+   }
+  ]
+ },
+ {
+  "slug": "molit-2000-sf2",
+  "nazev": "Molit 2000 SF2",
+  "kategorie": "produkty-pro-slevarenstvi",
+  "popis": [
+   "Ostatní názvy: alumosilikátový alkoholový nátěr",
+   "Nátěr je vyvinut pro všechny druhy forem a jádra používané ve slévárenství pro větší a silnostěnné odlitky šedé, tvárné a temperované litiny, neželezných kovů."
+  ],
+  "zakladni_udaje": [
+   {
+    "nazev": "ADR",
+    "hodnota": "333 l"
+   },
+   {
+    "nazev": "ES",
+    "hodnota": "200-662-2"
+   },
+   {
+    "nazev": "UN",
+    "hodnota": "1993"
+   }
+  ],
+  "baleni": [
+   {
+    "obal": "Plechový kbelík á 20 l",
+    "objem": "30 kg",
+    "mnozstvi": "na paletě EUR 12 kbelíků"
+   },
+   {
+    "obal": "Plechový kbelík á 30 l",
+    "objem": "60 kg",
+    "mnozstvi": "na paletě EUR 6 kbelíků"
+   }
+  ],
+  "soubory": [
+   {
+    "nazev": "Technická specifikace",
+    "soubor": "686be042f6510a1acc388688_Molit_2000_SF2_ts.pdf"
+   }
+  ]
+ },
+ {
+  "slug": "molit-2000-sf4",
+  "nazev": "Molit 2000 SF4",
+  "kategorie": "produkty-pro-slevarenstvi",
+  "popis": [
+   "Ostatní názvy: korundový alkoholový nátěr",
+   "Nátěr je vyvinut pro všechny druhy forem a jádra používané ve slévárenství pro větší a silnostěnné odlitky z ocelolitiny, šedé a tvárné litiny, neželezných kovů. Vhodný hlavně pro formy a jádra z chromitového písku."
+  ],
+  "zakladni_udaje": [
+   {
+    "nazev": "ADR",
+    "hodnota": "333 l"
+   },
+   {
+    "nazev": "ES",
+    "hodnota": "200-662-2"
+   },
+   {
+    "nazev": "UN",
+    "hodnota": "1993"
+   }
+  ],
+  "baleni": [
+   {
+    "obal": "Plechový kbelík á 20 l",
+    "objem": "30 kg",
+    "mnozstvi": "na paletě EUR 12 kbelíků"
+   },
+   {
+    "obal": "Plechový kbelík á 30 l",
+    "objem": "60 kg",
+    "mnozstvi": "na paletě EUR 6 kbelíků"
+   }
+  ],
+  "soubory": [
+   {
+    "nazev": "Technická specifikace",
+    "soubor": "686be0909db0f271583ae724_Molit_2000_SF4_ts.pdf"
+   }
+  ]
+ },
+ {
+  "slug": "molit-2000-sf5",
+  "nazev": "Molit 2000 SF5",
+  "kategorie": "produkty-pro-slevarenstvi",
+  "popis": [
+   "Ostatní názvy: magnezitový alkoholový nátěr",
+   "Nátěr je vyvinut pro všechny druhy forem a jádra používané ve slévárenství pro odlitky z manganových ocelí."
+  ],
+  "zakladni_udaje": [
+   {
+    "nazev": "ADR",
+    "hodnota": "333 l"
+   },
+   {
+    "nazev": "ES",
+    "hodnota": "200-662-2"
+   },
+   {
+    "nazev": "UN",
+    "hodnota": "1993"
+   }
+  ],
+  "baleni": [
+   {
+    "obal": "Plechový kbelík á 20 l",
+    "objem": "25 kg",
+    "mnozstvi": "na paletě EUR 12 kbelíků"
+   },
+   {
+    "obal": "Plechový kbelík á 30 l",
+    "objem": "50 kg",
+    "mnozstvi": "na paletě EUR 6 kbelíků"
+   }
+  ],
+  "soubory": [
+   {
+    "nazev": "Technická specifikace",
+    "soubor": "686be12ca841a958a163ecf1_Molit_2000_SF6_ts.pdf"
+   }
+  ]
+ },
+ {
+  "slug": "molit-2000-sf6",
+  "nazev": "Molit 2000 SF6",
+  "kategorie": "produkty-pro-slevarenstvi",
+  "popis": [
+   "Ostatní názvy: magnezitový alkoholový nátěr",
+   "Nátěr je vyvinut pro všechny druhy forem a jádra používané ve slévárenství pro odlitky z manganových ocelí."
+  ],
+  "zakladni_udaje": [
+   {
+    "nazev": "ADR",
+    "hodnota": "333 l"
+   },
+   {
+    "nazev": "ES",
+    "hodnota": "200-662-2"
+   },
+   {
+    "nazev": "UN",
+    "hodnota": "1993"
+   }
+  ],
+  "baleni": [
+   {
+    "obal": "Plechový kbelík á 20 l",
+    "objem": "30 kg",
+    "mnozstvi": "na paletě EUR 12 kbelíků"
+   },
+   {
+    "obal": "Plechový kbelík á 30 l",
+    "objem": "60 kg",
+    "mnozstvi": "na paletě EUR 6 kbelíků"
+   }
+  ],
+  "soubory": [
+   {
+    "nazev": "Technická specifikace",
+    "soubor": "686be0da53076d6555065798_Molit_2000_SF5_ts.pdf"
+   }
+  ]
+ },
+ {
+  "slug": "molit-2000-sf8",
+  "nazev": "Molit 2000 SF8",
+  "kategorie": "produkty-pro-slevarenstvi",
+  "popis": [],
+  "zakladni_udaje": [],
+  "baleni": [],
+  "soubory": []
+ },
+ {
+  "slug": "molit-2000-sk",
+  "nazev": "Molit 2000 SK",
+  "kategorie": "produkty-pro-slevarenstvi",
+  "popis": [],
+  "zakladni_udaje": [],
+  "baleni": [],
+  "soubory": []
+ },
+ {
+  "slug": "molit-2000-sz",
+  "nazev": "Molit 2000 SZ",
+  "kategorie": "produkty-pro-slevarenstvi",
+  "popis": [],
+  "zakladni_udaje": [],
+  "baleni": [],
+  "soubory": []
+ },
+ {
+  "slug": "molit-lp",
+  "nazev": "Molit LP",
+  "kategorie": "produkty-pro-slevarenstvi",
+  "popis": [],
+  "zakladni_udaje": [],
+  "baleni": [],
+  "soubory": []
+ },
+ {
+  "slug": "molit-tp",
+  "nazev": "Molit TP",
+  "kategorie": "produkty-pro-slevarenstvi",
+  "popis": [],
+  "zakladni_udaje": [],
+  "baleni": [],
+  "soubory": []
+ },
+ {
+  "slug": "molit-vp",
+  "nazev": "Molit VP",
+  "kategorie": "produkty-pro-slevarenstvi",
+  "popis": [],
+  "zakladni_udaje": [],
+  "baleni": [],
+  "soubory": []
+ },
+ {
+  "slug": "osakryl-ab-20",
+  "nazev": "Osakryl AB 20",
+  "kategorie": "disperze",
+  "popis": [
+   "Pojivo pro dekorativní a ochranné nátěry a omítkoviny s vysokou odolností proti UV záření a vynikající venkovní trvanlivostí."
+  ],
+  "zakladni_udaje": [],
+  "baleni": [
+   {
+    "obal": "IBC kontejner",
+    "objem": "",
+    "mnozstvi": "1 000 kg"
+   },
+   {
+    "obal": "Konev",
+    "objem": "",
+    "mnozstvi": "45 kg"
+   },
+   {
+    "obal": "Cisterna",
+    "objem": "",
+    "mnozstvi": "4 – 24 t"
+   }
+  ],
+  "soubory": [
+   {
+    "nazev": "Technická specifikace",
+    "soubor": "68566b09d421d1697807ac5c_Osakryl_AB_20_en_ts.pdf"
+   }
+  ]
+ },
+ {
+  "slug": "osakryl-ah-035",
+  "nazev": "Osakryl AH 035",
+  "kategorie": "disperze",
+  "popis": [
+   "Pojivo pro akylátové tmely, lepidla a hydroizolace."
+  ],
+  "zakladni_udaje": [],
+  "baleni": [
+   {
+    "obal": "IBC kontejner",
+    "objem": "",
+    "mnozstvi": "1 000 kg"
+   },
+   {
+    "obal": "Konev",
+    "objem": "",
+    "mnozstvi": "45 kg"
+   },
+   {
+    "obal": "Cisterna",
+    "objem": "",
+    "mnozstvi": "4 – 24 t"
+   }
+  ],
+  "soubory": [
+   {
+    "nazev": "Technická specifikace",
+    "soubor": "6856746ae8f31d3a91712323_Osakryl_AH_035_en_ts.pdf"
+   }
+  ]
+ },
+ {
+  "slug": "osakryl-ap-40",
+  "nazev": "Osakryl AP 40",
+  "kategorie": "disperze",
+  "popis": [
+   "Malomolekulární akrylová disperze pro výrobu vysoce kvalitních a hluboce penetrujících základových přípravků."
+  ],
+  "zakladni_udaje": [],
+  "baleni": [
+   {
+    "obal": "IBC kontejner",
+    "objem": "",
+    "mnozstvi": "1 000 kg"
+   },
+   {
+    "obal": "Konev",
+    "objem": "",
+    "mnozstvi": "45 kg"
+   },
+   {
+    "obal": "Cisterna",
+    "objem": "",
+    "mnozstvi": "4 – 24 t"
+   }
+  ],
+  "soubory": [
+   {
+    "nazev": "Technická specifikace",
+    "soubor": "685674c7ef56571cdc0584de_Osakryl_AP_40_en_ts.pdf"
+   }
+  ]
+ },
+ {
+  "slug": "osakryl-ob",
+  "nazev": "Osakryl OB",
+  "kategorie": "disperze",
+  "popis": [
+   "Vinyl-akrylový kopolymer, pojivo v interiérových barvách a levných fasádních barvách."
+  ],
+  "zakladni_udaje": [],
+  "baleni": [
+   {
+    "obal": "IBC kontejner",
+    "objem": "",
+    "mnozstvi": "1 000 kg"
+   },
+   {
+    "obal": "Konev",
+    "objem": "",
+    "mnozstvi": "45 kg"
+   },
+   {
+    "obal": "Cisterna",
+    "objem": "",
+    "mnozstvi": "4 – 24 t"
+   }
+  ],
+  "soubory": [
+   {
+    "nazev": "Technická specifikace",
+    "soubor": "6856755c5ab7d5dd1ba32ce6_Osakryl_OB_en_ts.pdf"
+   }
+  ]
+ },
+ {
+  "slug": "osakryl-osa--1m",
+  "nazev": "Osakryl OSA 1M",
+  "kategorie": "disperze",
+  "popis": [
+   "Pojivo pro výrobu interiérových i fasádních, silikonových i silikátových produktů."
+  ],
+  "zakladni_udaje": [],
+  "baleni": [
+   {
+    "obal": "IBC kontejner",
+    "objem": "",
+    "mnozstvi": "1 000 kg"
+   },
+   {
+    "obal": "Konev",
+    "objem": "",
+    "mnozstvi": "45 kg"
+   },
+   {
+    "obal": "Cisterna",
+    "objem": "",
+    "mnozstvi": "4 – 24 t"
+   }
+  ],
+  "soubory": [
+   {
+    "nazev": "Technická specifikace",
+    "soubor": "685675b8b1c53c4529985736_Osakryl_OSA_1M_en_ts.pdf"
+   }
+  ]
+ },
+ {
+  "slug": "osakryl-osa-23nm",
+  "nazev": "Osakryl OSA 23NM",
+  "kategorie": "disperze",
+  "popis": [
+   "Univerzální pojivo s vysokou odolností k vodě pro produkty s nízkým obsahem VOC bez amoniaku."
+  ],
+  "zakladni_udaje": [],
+  "baleni": [
+   {
+    "obal": "IBC kontejner",
+    "objem": "",
+    "mnozstvi": "1 000 kg"
+   },
+   {
+    "obal": "Konev",
+    "objem": "",
+    "mnozstvi": "45 kg"
+   },
+   {
+    "obal": "Cisterna",
+    "objem": "",
+    "mnozstvi": "4 – 24 t"
+   }
+  ],
+  "soubory": [
+   {
+    "nazev": "Technická specifikace",
+    "soubor": "68567614d5a802515d7c10f6_Osakryl_OSA_23_NM_en_ts.pdf"
+   }
+  ]
+ },
+ {
+  "slug": "osakryl-osa-319m",
+  "nazev": "Osakryl OSA 319M",
+  "kategorie": "disperze",
+  "popis": [
+   "Pojivo s vysokou pevností pro interiérové a fasádní barvy."
+  ],
+  "zakladni_udaje": [],
+  "baleni": [
+   {
+    "obal": "IBC kontejner",
+    "objem": "",
+    "mnozstvi": "1 000 kg"
+   },
+   {
+    "obal": "Konev",
+    "objem": "",
+    "mnozstvi": "45 kg"
+   },
+   {
+    "obal": "Cisterna",
+    "objem": "",
+    "mnozstvi": "4 – 24 t"
+   }
+  ],
+  "soubory": [
+   {
+    "nazev": "Technická specifikace",
+    "soubor": "68567643b1a0d444fa597acd_Osakryl_OSA_319_M_en_ts.pdf"
+   }
+  ]
+ },
+ {
+  "slug": "osakryl-osa-h",
+  "nazev": "Osakryl OSA H",
+  "kategorie": "disperze",
+  "popis": [
+   "Pojivo pro výrobu dvousložkových izolačních hmot na bázi cementu a pro modifikování betonu."
+  ],
+  "zakladni_udaje": [],
+  "baleni": [
+   {
+    "obal": "IBC kontejner",
+    "objem": "",
+    "mnozstvi": "1 000 kg"
+   },
+   {
+    "obal": "Konev",
+    "objem": "",
+    "mnozstvi": "45 kg"
+   },
+   {
+    "obal": "Cisterna",
+    "objem": "",
+    "mnozstvi": "4 – 24 t"
+   }
+  ],
+  "soubory": [
+   {
+    "nazev": "Technická specifikace",
+    "soubor": "6856767502172b94e1af69c2_Osakryl_OSA_H_en_ts.pdf"
+   }
+  ]
+ },
+ {
+  "slug": "perchloretylen",
+  "nazev": "Perchloretylen",
+  "kategorie": "produkty-pro-cistirny",
+  "popis": [
+   "Ostatní názvy: tetrachloretylen, tetrachloreten",
+   "Perchloretylen je výtečné rozpouštědlo organických látek. Je těkavý, velmi stabilní a nehořlavý. Proto se široce používá pro suché čištění textilu v čistírnách oděvů a k odmašťování kovových částí v automobilovém a jiném kovodělném průmyslu. Je obsažen v některých spotřebitelských výrobcích, například odstraňovačích nátěrů."
+  ],
+  "zakladni_udaje": [
+   {
+    "nazev": "ADR",
+    "hodnota": "UN 1897, 6.1, III"
+   },
+   {
+    "nazev": "ES",
+    "hodnota": "204-825-9"
+   },
+   {
+    "nazev": "CAS",
+    "hodnota": "127-18-4"
+   },
+   {
+    "nazev": "Concentrate (%)",
+    "hodnota": "99,9"
+   },
+   {
+    "nazev": "Indexové číslo",
+    "hodnota": "602-027-00-4"
+   }
+  ],
+  "baleni": [
+   {
+    "obal": "Sud ocelový",
+    "objem": "200 l",
+    "mnozstvi": "300 kg"
+   },
+   {
+    "obal": "Kontejner",
+    "objem": "1 000 l",
+    "mnozstvi": "1 500 kg"
+   },
+   {
+    "obal": "Autocisterna",
+    "objem": "",
+    "mnozstvi": "5 000 – 24 000 kg"
+   },
+   {
+    "obal": "Železniční cisterna",
+    "objem": "",
+    "mnozstvi": "30 000 – 42 000 kg"
+   }
+  ],
+  "soubory": [
+   {
+    "nazev": "Technická specifikace",
+    "soubor": "68569cd8cd08c5e1b5935c55_Perchloretylen_ts.pdf"
+   }
+  ]
+ },
+ {
+  "slug": "peroxid-vodiku",
+  "nazev": "Peroxid vodíku",
+  "kategorie": "ostatni-chemie",
+  "popis": [
+   "Ostatní názvy: peracetic acid, kyselina peroctová, kyselina peroxooctová",
+   "Peroxid vodíku se díky svému oxidačnímu účinku používá jako dezinfekce."
+  ],
+  "zakladni_udaje": [
+   {
+    "nazev": "ADR",
+    "hodnota": "UN 3109, 5.2, II"
+   },
+   {
+    "nazev": "ES",
+    "hodnota": "201-186-8"
+   },
+   {
+    "nazev": "CAS",
+    "hodnota": "79-21-0"
+   },
+   {
+    "nazev": "Concentrate (%)",
+    "hodnota": "35"
+   },
+   {
+    "nazev": "Indexové číslo",
+    "hodnota": "607-094-00-8"
+   }
+  ],
+  "baleni": [
+   {
+    "obal": "Soudek",
+    "objem": "50 l",
+    "mnozstvi": "55 kg"
+   }
+  ],
+  "soubory": [
+   {
+    "nazev": "Technická specifikace",
+    "soubor": "68569e4f5b87ead4fe2a2c3e_Peroxid_vodiku_35_ts.pdf"
+   }
+  ]
+ },
+ {
+  "slug": "redidlo-c6000",
+  "nazev": "Ředidlo C6000",
+  "kategorie": "organicka-rozpoustedla",
+  "popis": [],
+  "zakladni_udaje": [
+   {
+    "nazev": "ADR",
+    "hodnota": "UN 1263, 3, II"
+   }
+  ],
+  "baleni": [
+   {
+    "obal": "Sud ocelový",
+    "objem": "200 l",
+    "mnozstvi": "140 kg"
+   },
+   {
+    "obal": "IBC kontejner",
+    "objem": "1 000 l",
+    "mnozstvi": "700 kg"
+   },
+   {
+    "obal": "Autocisterna",
+    "objem": "",
+    "mnozstvi": "5 000 – 24 000 kg"
+   }
+  ],
+  "soubory": [
+   {
+    "nazev": "Technická specifikace",
+    "soubor": "685695ebc0e2c8d0c63e8bc7_Redidlo_C6000_ts.pdf"
+   }
+  ]
+ },
+ {
+  "slug": "redidlo-s6005",
+  "nazev": "Ředidlo S6005",
+  "kategorie": "organicka-rozpoustedla",
+  "popis": [],
+  "zakladni_udaje": [
+   {
+    "nazev": "ADR",
+    "hodnota": "UN 1263, 3, III"
+   }
+  ],
+  "baleni": [
+   {
+    "obal": "Sud ocelový",
+    "objem": "200 l",
+    "mnozstvi": "140 kg"
+   },
+   {
+    "obal": "IBC kontejner",
+    "objem": "1 000 l",
+    "mnozstvi": "700 kg"
+   },
+   {
+    "obal": "Autocisterna",
+    "objem": "",
+    "mnozstvi": "5 000 – 24 000 kg"
+   }
+  ],
+  "soubory": [
+   {
+    "nazev": "Technická specifikace",
+    "soubor": "685696314b0cc9c2990d927b_Redidlo_S6005_ts.pdf"
+   }
+  ]
+ },
+ {
+  "slug": "redidlo-s6006",
+  "nazev": "Ředidlo S6006",
+  "kategorie": "organicka-rozpoustedla",
+  "popis": [],
+  "zakladni_udaje": [
+   {
+    "nazev": "ADR",
+    "hodnota": "UN 1263, 3, III"
+   }
+  ],
+  "baleni": [
+   {
+    "obal": "Sud ocelový",
+    "objem": "200 l",
+    "mnozstvi": "140 kg"
+   },
+   {
+    "obal": "IBC kontejner",
+    "objem": "1 000 l",
+    "mnozstvi": "700 kg"
+   },
+   {
+    "obal": "Autocisterna",
+    "objem": "",
+    "mnozstvi": "5 000 – 24 000 kg"
+   }
+  ],
+  "soubory": [
+   {
+    "nazev": "Technická specifikace",
+    "soubor": "685696723fddb8202c0533a3_Redidlo_S6006_ts.pdf"
+   }
+  ]
+ },
+ {
+  "slug": "rustol-alkydharz-medium-new",
+  "nazev": "Rustol alkydharz medium new",
+  "kategorie": "produkty-pro-slevarenstvi",
+  "popis": [],
+  "zakladni_udaje": [],
+  "baleni": [],
+  "soubory": []
+ },
+ {
+  "slug": "rustol-alkydharz-vp-13-new",
+  "nazev": "Rustol alkydharz VP 13 new",
+  "kategorie": "produkty-pro-slevarenstvi",
+  "popis": [],
+  "zakladni_udaje": [],
+  "baleni": [],
+  "soubory": []
+ },
+ {
+  "slug": "rustol-komponente-b1",
+  "nazev": "Rustol komponente B1",
+  "kategorie": "produkty-pro-slevarenstvi",
+  "popis": [],
+  "zakladni_udaje": [],
+  "baleni": [],
+  "soubory": []
+ },
+ {
+  "slug": "separo",
+  "nazev": "Separo",
+  "kategorie": "produkty-pro-slevarenstvi",
+  "popis": [
+   "Ostatní názvy: separátor pro modely a jaderníky",
+   "Separo je určen k postřiku modlů a jaderníků vyrobené ze dřeva, kovu a plastických hmot. Nepoškozuje povrchové laky modlů a jaderníků."
+  ],
+  "zakladni_udaje": [
+   {
+    "nazev": "ES",
+    "hodnota": "200-662-2"
+   }
+  ],
+  "baleni": [
+   {
+    "obal": "PE kanystr á 10 l",
+    "objem": "9 kg",
+    "mnozstvi": "na paletě EUR 48 kanystrů"
+   },
+   {
+    "obal": "Plechový kbelík á 20 l",
+    "objem": "18 kg",
+    "mnozstvi": "na paletě EUR 12 kbelíků"
+   },
+   {
+    "obal": "Sud á 200 l",
+    "objem": "180 kg",
+    "mnozstvi": "na paletě EUR 2 sudy"
+   },
+   {
+    "obal": "IBC kontejner á 1000 l",
+    "objem": "900 kg",
+    "mnozstvi": ""
+   }
+  ],
+  "soubory": [
+   {
+    "nazev": "Technická specifikace",
+    "soubor": "686be31610d360f05a9a9ba0_Separo_ts.pdf"
+   }
+  ]
+ },
+ {
+  "slug": "separo-p",
+  "nazev": "Separo P",
+  "kategorie": "produkty-pro-slevarenstvi",
+  "popis": [],
+  "zakladni_udaje": [],
+  "baleni": [],
+  "soubory": []
+ },
+ {
+  "slug": "silikagel-sgo-50",
+  "nazev": "Silikagel SGO 50",
+  "kategorie": "sorbenty-a-filtrace",
+  "popis": [
+   "Ostatní názvy: silikagel, silica gel",
+   "Imregnované a neimpregnované silikagely používané jako vysoušedlo pro odstranění vody ze vzduchu a dalších plynů."
+  ],
+  "zakladni_udaje": [
+   {
+    "nazev": "CAS",
+    "hodnota": "64365-11-3"
+   }
+  ],
+  "baleni": [
+   {
+    "obal": "PP pytle s PE vložkou uvnitř",
+    "objem": "25 kg",
+    "mnozstvi": ""
+   }
+  ],
+  "soubory": [
+   {
+    "nazev": "Technická specifikace",
+    "soubor": "686be52920681b4206f7ee30_Silikagel_SGO_50_ts.pdf"
+   }
+  ]
+ },
+ {
+  "slug": "silikagel-sgr-50",
+  "nazev": "Silikagel SGR 50",
+  "kategorie": "sorbenty-a-filtrace",
+  "popis": [],
+  "zakladni_udaje": [],
+  "baleni": [],
+  "soubory": []
+ },
+ {
+  "slug": "sul-tabletovana",
+  "nazev": "Sůl tabletovaná",
+  "kategorie": "ostatni-chemie",
+  "popis": [
+   "Ostatní názvy: chlorid sodný",
+   "Chlorid sodný určený pro úpravu vody."
+  ],
+  "zakladni_udaje": [
+   {
+    "nazev": "ES",
+    "hodnota": "231-598-3"
+   },
+   {
+    "nazev": "CAS",
+    "hodnota": "7647-14-5"
+   },
+   {
+    "nazev": "Concentrate (%)",
+    "hodnota": "99-100"
+   }
+  ],
+  "baleni": [
+   {
+    "obal": "PE pytel",
+    "objem": "",
+    "mnozstvi": "20 kg"
+   }
+  ],
+  "soubory": [
+   {
+    "nazev": "Technická specifikace",
+    "soubor": "68569fadddb960d00f12ff9a_Sul_prumyslova_ts.pdf"
+   }
+  ]
+ },
+ {
+  "slug": "synexil-ath-30",
+  "nazev": "Synexil ATH 30",
+  "kategorie": "disperze",
+  "popis": [
+   "Akrylátové zahušťovadlo určené pro úpravu reologických vlastností vodních výrobků stavební chemie."
+  ],
+  "zakladni_udaje": [],
+  "baleni": [
+   {
+    "obal": "IBC kontejner",
+    "objem": "",
+    "mnozstvi": "1 000 kg"
+   },
+   {
+    "obal": "Konev",
+    "objem": "",
+    "mnozstvi": "45 kg"
+   },
+   {
+    "obal": "Cisterna",
+    "objem": "",
+    "mnozstvi": "4 – 24 t"
+   }
+  ],
+  "soubory": []
+ },
+ {
+  "slug": "synexil-f11",
+  "nazev": "Synexil F11",
+  "kategorie": "disperze",
+  "popis": [
+   "Plastifikovaná disperze (11%), tvoří elastický film, používá se jako surovina mezi jinými pro výrobu disperzních lepidel."
+  ],
+  "zakladni_udaje": [],
+  "baleni": [
+   {
+    "obal": "IBC kontejner",
+    "objem": "",
+    "mnozstvi": "1 000 kg"
+   },
+   {
+    "obal": "Konev",
+    "objem": "",
+    "mnozstvi": "45 kg"
+   },
+   {
+    "obal": "Cisterna",
+    "objem": "",
+    "mnozstvi": "4 – 24 t"
+   }
+  ],
+  "soubory": [
+   {
+    "nazev": "Technická specifikace",
+    "soubor": "68567786a3949c9ba7a8d660_Winacet_DP_44_11_en_ts.pdf"
+   }
+  ]
+ },
+ {
+  "slug": "synexil-f5",
+  "nazev": "Synexil F5",
+  "kategorie": "disperze",
+  "popis": [
+   "Plastifikovaná disperze (5%), používaná jako základní surovina mezi jinými pro výrobu disperzních lepidel."
+  ],
+  "zakladni_udaje": [],
+  "baleni": [
+   {
+    "obal": "IBC kontejner",
+    "objem": "",
+    "mnozstvi": "1 000 kg"
+   },
+   {
+    "obal": "Konev",
+    "objem": "",
+    "mnozstvi": "45 kg"
+   },
+   {
+    "obal": "Cisterna",
+    "objem": "",
+    "mnozstvi": "4 – 24 t"
+   }
+  ],
+  "soubory": [
+   {
+    "nazev": "Technická specifikace",
+    "soubor": "685677bbef56571cdc065a18_Winacet_DW_47-05_en_ts.pdf"
+   }
+  ]
+ },
+ {
+  "slug": "technicky-benzin-80-110-27101125-spd",
+  "nazev": "Technický benzín 80/110 (27101125) SPD",
+  "kategorie": "organicka-rozpoustedla",
+  "popis": [],
+  "zakladni_udaje": [
+   {
+    "nazev": "ADR",
+    "hodnota": "UN 3295, 3, II"
+   },
+   {
+    "nazev": "ES",
+    "hodnota": "265-086-6"
+   },
+   {
+    "nazev": "CAS",
+    "hodnota": "64741-84-0"
+   },
+   {
+    "nazev": "Concentrate (%)",
+    "hodnota": "> 99"
+   },
+   {
+    "nazev": "Indexové číslo",
+    "hodnota": "649-278-00-0"
+   }
+  ],
+  "baleni": [
+   {
+    "obal": "Sud ocelový",
+    "objem": "200 l",
+    "mnozstvi": "120 kg"
+   },
+   {
+    "obal": "IBC kontejner",
+    "objem": "1 000 l",
+    "mnozstvi": "600 kg"
+   },
+   {
+    "obal": "Autocisterna",
+    "objem": "",
+    "mnozstvi": "5 000 – 24 000 kg"
+   },
+   {
+    "obal": "Železniční cisterna",
+    "objem": "",
+    "mnozstvi": "30 000 – 42 000 kg"
+   }
+  ],
+  "soubory": [
+   {
+    "nazev": "Technická specifikace",
+    "soubor": "685696f1e92310d8af6e8dd9_Technicke_benziny_ts.pdf"
+   }
+  ]
+ },
+ {
+  "slug": "toluen",
+  "nazev": "Toluen",
+  "kategorie": "organicka-rozpoustedla",
+  "popis": [
+   "Ostatní názvy: methylbenzen"
+  ],
+  "zakladni_udaje": [
+   {
+    "nazev": "ADR",
+    "hodnota": "UN 1294, 3, II"
+   },
+   {
+    "nazev": "ES",
+    "hodnota": "203-625-9"
+   },
+   {
+    "nazev": "CAS",
+    "hodnota": "108-88-3"
+   },
+   {
+    "nazev": "Concentrate (%)",
+    "hodnota": "> 99"
+   },
+   {
+    "nazev": "Indexové číslo",
+    "hodnota": "601-021-00-3"
+   }
+  ],
+  "baleni": [
+   {
+    "obal": "Sud ocelový",
+    "objem": "200 l",
+    "mnozstvi": "160 kg"
+   },
+   {
+    "obal": "IBC kontejner",
+    "objem": "1 000 l",
+    "mnozstvi": "800 kg"
+   },
+   {
+    "obal": "Autocisterna",
+    "objem": "",
+    "mnozstvi": "5 000 – 24 000 kg"
+   },
+   {
+    "obal": "Železniční cisterna",
+    "objem": "",
+    "mnozstvi": "30 000 – 42 000 kg"
+   }
+  ],
+  "soubory": [
+   {
+    "nazev": "Technická specifikace",
+    "soubor": "6856975b4b0cc9c2990df337_Toluen_ts.pdf"
+   }
+  ]
+ },
+ {
+  "slug": "woodmax-d3-wr-13-50m",
+  "nazev": "Woodmax D3 (WR 13.50M)",
+  "kategorie": "lepidla-na-drevo",
+  "popis": [],
+  "zakladni_udaje": [],
+  "baleni": [
+   {
+    "obal": "IBC kontejner",
+    "objem": "",
+    "mnozstvi": "1 000 kg"
+   },
+   {
+    "obal": "Konev",
+    "objem": "",
+    "mnozstvi": "50 kg"
+   },
+   {
+    "obal": "Kbelík",
+    "objem": "",
+    "mnozstvi": "20 kg"
+   },
+   {
+    "obal": "Kbelík",
+    "objem": "",
+    "mnozstvi": "5 kg"
+   }
+  ],
+  "soubory": []
+ },
+ {
+  "slug": "woodmax-d4-oc14-50",
+  "nazev": "Woodmax D4 (OC14.50)",
+  "kategorie": "lepidla-na-drevo",
+  "popis": [],
+  "zakladni_udaje": [],
+  "baleni": [
+   {
+    "obal": "IBC kontejner",
+    "objem": "",
+    "mnozstvi": "1 000 kg"
+   },
+   {
+    "obal": "Konev",
+    "objem": "",
+    "mnozstvi": "50 kg"
+   },
+   {
+    "obal": "Kbelík",
+    "objem": "",
+    "mnozstvi": "20 kg"
+   },
+   {
+    "obal": "Kbelík",
+    "objem": "",
+    "mnozstvi": "5 kg"
+   }
+  ],
+  "soubory": []
+ },
+ {
+  "slug": "xylen",
+  "nazev": "Xylen",
+  "kategorie": "organicka-rozpoustedla",
+  "popis": [
+   "Ostatní názvy: dimetylbenzen, xylene"
+  ],
+  "zakladni_udaje": [
+   {
+    "nazev": "ADR",
+    "hodnota": "UN 1307, 3, III"
+   },
+   {
+    "nazev": "ES",
+    "hodnota": "1330-20-7"
+   },
+   {
+    "nazev": "CAS",
+    "hodnota": "1330-20-7"
+   },
+   {
+    "nazev": "Concentrate (%)",
+    "hodnota": "> 90.3"
+   },
+   {
+    "nazev": "Indexové číslo",
+    "hodnota": "1330-20-7"
+   }
+  ],
+  "baleni": [
+   {
+    "obal": "Sud ocelový",
+    "objem": "200 l",
+    "mnozstvi": "160 kg"
+   },
+   {
+    "obal": "IBC kontejner",
+    "objem": "1 000 l",
+    "mnozstvi": "800 kg"
+   },
+   {
+    "obal": "Autocisterna",
+    "objem": "",
+    "mnozstvi": "5 000 – 24 000 kg"
+   },
+   {
+    "obal": "Železniční cisterna",
+    "objem": "",
+    "mnozstvi": "30 000 – 42 000 kg"
+   }
+  ],
+  "soubory": [
+   {
+    "nazev": "Technická specifikace",
+    "soubor": "685697bdcd08c5e1b591a135_Xylen_ts.pdf"
+   }
+  ]
+ }
+]

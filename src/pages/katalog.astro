@@ -1,0 +1,55 @@
+---
+import Base from '../layouts/Base.astro';
+import StrankaHero from '../components/StrankaHero.astro';
+import ProduktKarta from '../components/ProduktKarta.astro';
+import { produkty } from '../data/katalog';
+
+const NA_STRANKU = 16;
+---
+
+<Base
+  title="Katalog chemických produktů - Dašice | CHEMAP"
+  description="Objevte katalog chemických produktů od CHEMAP Dašice – disperze, sorbenty, lepidla, organická rozpouštědla a další přípravky pro průmyslové využití."
+  aktivni="katalog"
+>
+  <StrankaHero
+    nadpis="Katalog produktů"
+    podnadpis="Máte dotazy, připomínky anebo zájem o naše služby? Neváhejte nás kontaktovat!"
+  />
+
+  <section class="seznam">
+    <div class="mrizka" data-strankovani data-na-stranku={NA_STRANKU}>
+      {produkty.map((p) => <ProduktKarta produkt={p} />)}
+    </div>
+    <nav class="strankovani" aria-label="Stránkování" data-strankovani-nav hidden>
+      <a href="?strana=1" class="strankovani__btn" data-predchozi>‹ Předchozí</a>
+      <a href="?strana=2" class="strankovani__btn" data-dalsi>Další ›</a>
+    </nav>
+  </section>
+</Base>
+
+<script>
+  // Shows 16 products per page like the original catalogue; without JS all products stay visible.
+  const mrizka = document.querySelector<HTMLElement>('[data-strankovani]');
+  const nav = document.querySelector<HTMLElement>('[data-strankovani-nav]');
+  const predchozi = document.querySelector<HTMLAnchorElement>('[data-predchozi]');
+  const dalsi = document.querySelector<HTMLAnchorElement>('[data-dalsi]');
+
+  if (mrizka && nav && predchozi && dalsi) {
+    const naStranku = Number(mrizka.dataset.naStranku ?? '16');
+    const karty = Array.from(mrizka.children) as HTMLElement[];
+    const pocetStran = Math.max(1, Math.ceil(karty.length / naStranku));
+    const parametr = Number(new URLSearchParams(location.search).get('strana') ?? '1');
+    const strana = Number.isInteger(parametr) ? Math.min(Math.max(parametr, 1), pocetStran) : 1;
+
+    karty.forEach((karta, i) => {
+      karta.hidden = Math.floor(i / naStranku) + 1 !== strana;
+    });
+
+    nav.hidden = pocetStran < 2;
+    predchozi.hidden = strana <= 1;
+    dalsi.hidden = strana >= pocetStran;
+    predchozi.href = `?strana=${strana - 1}`;
+    dalsi.href = `?strana=${strana + 1}`;
+  }
+</script>

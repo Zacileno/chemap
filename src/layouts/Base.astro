@@ -1,0 +1,82 @@
+---
+import '@fontsource/comfortaa/400.css';
+import '@fontsource/comfortaa/500.css';
+import '@fontsource/comfortaa/600.css';
+import '@fontsource/comfortaa/700.css';
+import '@fontsource/open-sans/400.css';
+import '@fontsource/open-sans/600.css';
+import '@fontsource/open-sans/700.css';
+import '../styles/global.css';
+import Hlavicka from '../components/Hlavicka.astro';
+import Paticka from '../components/Paticka.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Active main menu item. */
+  aktivni?: 'uvod' | 'katalog' | 'kontakty';
+}
+
+const { title, description, aktivni } = Astro.props;
+const canonical = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', Astro.site);
+const ogImage = new URL('/img/logo.png', Astro.site);
+
+/** Same Google Tag Manager container as the original site (it also loads the CookieYes banner). */
+const GTM_ID = 'GTM-KPHB2GWX';
+---
+
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="cs_CZ" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="google-site-verification" content="XGeg_bo-EuKcObf-y0RxWJ496A2iRIlB0JXg5TAfnjM" />
+    <link rel="icon" href="/img/fav32.jpg" type="image/jpeg" />
+    <link rel="apple-touch-icon" href="/img/fav256.jpg" />
+    <meta name="theme-color" content="#ffe000" />
+    {/* Google Tag Manager — runs only on the production domain so test deploys don't skew the stats. */}
+    <script is:inline define:vars={{ GTM_ID }}>
+      if (/(^|\.)chemap\.cz$/.test(location.hostname)) {
+        (function (w, d, s, l, i) {
+          w[l] = w[l] || [];
+          w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : '';
+          j.async = true;
+          j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+          f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', GTM_ID);
+      }
+    </script>
+  </head>
+  <body>
+    <noscript
+      ><iframe
+        src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"
+        title="Google Tag Manager"></iframe
+      ></noscript
+    >
+    <Hlavicka aktivni={aktivni} />
+    <main>
+      <slot />
+    </main>
+    <Paticka />
+  </body>
+</html>

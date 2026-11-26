@@ -1,0 +1,173 @@
+---
+import Base from '../layouts/Base.astro';
+import FotoMisto from '../components/FotoMisto.astro';
+import Ikona from '../components/Ikona.astro';
+import IkonaKategorie from '../components/IkonaKategorie.astro';
+import { kategorie } from '../data/katalog';
+import type { KategorieSlug } from '../data/katalog';
+
+const vyhody = [
+  'Česká firma',
+  'Technická podpora a konzultace',
+  'Dodání zboží do druhého dne',
+  'Laboratorní zkoušky u nás i u zákazníka',
+];
+
+interface Blok {
+  nadpis: string;
+  text: string;
+  ikona: KategorieSlug;
+  popisekFoto: string;
+}
+
+const bloky: Blok[] = [
+  {
+    nadpis: 'Organická rozpouštědla',
+    text: 'Organická rozpouštědla se používají pro výrobu nátěrových hmot, lepidel i v textilním průmyslu. Zajišťují správnou konzistenci, přilnavost i efektivní aplikaci. Vyberte si z naší nabídky kvalitních chemických přípravků.',
+    ikona: 'organicka-rozpoustedla',
+    popisekFoto: 'Foto: organická rozpouštědla',
+  },
+  {
+    nadpis: 'Akrylátové a vinylacetátové disperze',
+    text: 'Akrylátové a vinylacetátové disperze nachází široké uplatnění v průmyslu – od výroby nátěrových hmot, lepidel a tmelů až po penetrace, šlichtování textilií a výrobu přípravků zamezujících okus stromků zvěří. Získejte vynikající výsledky s našimi produkty.',
+    ikona: 'disperze',
+    popisekFoto: 'Foto: disperze',
+  },
+  {
+    nadpis: 'Slévárenské přípravky',
+    text: 'Slévárenské přípravky jsou nezbytné pro nátěry forem a jader a také separaci a ředění slévárenských nátěrů, kde zajišťují hladký povrch odlitků, minimalizují vady a usnadňují proces odformování. Nabízíme kvalitní produkty, které přispívají k vyšší efektivitě a přesnosti výroby.',
+    ikona: 'produkty-pro-slevarenstvi',
+    popisekFoto: 'Foto: slévárenství',
+  },
+  {
+    nadpis: 'Čistírenská rozpouštědla',
+    text: 'Čistírenská rozpouštědla jsou ideální pro standardní i ekologické čištění oděvů, kde efektivně odstraňují nečistoty, oleje a tuky, aniž by poškodily textilní materiály. Prohlédněte si naši nabídku rozpouštědel pro profesionální a ekologicky šetrné čištění.',
+    ikona: 'produkty-pro-cistirny',
+    popisekFoto: 'Foto: čistírny',
+  },
+];
+---
+
+<Base
+  title="CHEMAP, spol. s r.o. | Výroba chemických látek a přípravků - Dašice"
+  description="Jsme přední český výrobce a distributor chemických látek a přípravků. V CHEMAP Dašice nabízíme široký sortiment, technickou podporu a rychlé dodání po celé ČR."
+  aktivni="uvod"
+>
+  <div class="molekuly-pozadi" aria-hidden="true"></div>
+
+  <section class="hero">
+    <div class="hero__text">
+      <h1 class="h1">
+        <span class="zluta">Přední český</span>{' '}výrobce a distributor{' '}
+        <span class="zluta">chemických</span>{' '}látek a přípravků
+      </h1>
+      <p class="hero__perex">Zákazníky máme na prvním místě už téměř 30 let</p>
+      <ul class="vyhody">
+        {
+          vyhody.map((v) => (
+            <li>
+              <Ikona nazev="trojuhelnik" class="vyhody__ikona" />
+              {v}
+            </li>
+          ))
+        }
+      </ul>
+      <a href="/katalog" class="btn btn--zlute">Katalog produktů</a>
+    </div>
+
+    <div class="kolo" data-kolo>
+      <div class="kolo__ikony">
+        {
+          kategorie.map((k, i) => (
+            <a
+              href={`/kategorie-produktu/${k.slug}`}
+              class="kolo__ikona"
+              style={`--i:${i}`}
+              data-kat={k.slug}
+              aria-label={k.nazev}
+            >
+              <IkonaKategorie slug={k.slug} />
+            </a>
+          ))
+        }
+      </div>
+      <div class="kolo__stred">
+        <div class="kolo__popis is-active" data-popis="vychozi">
+          <p class="kolo__nadpis">Vyberte, co vás zajímá</p>
+        </div>
+        {
+          kategorie.map((k) => (
+            <div class="kolo__popis" data-popis={k.slug}>
+              <p class="kolo__nadpis">{k.nazev}</p>
+              <p class="kolo__text">{k.perex}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="sortiment">
+    <h2 class="h2 sortiment__nadpis">
+      Široký výběr produktů pro vaše <span class="bila">efektivní podnikání</span>
+    </h2>
+    <div class="bloky">
+      {
+        bloky.map((b, i) => (
+          <div class:list={['blok', { 'blok--obraceny': i % 2 === 1 }]}>
+            <div class="blok__text">
+              <h3 class="h3">{b.nadpis}</h3>
+              <p>{b.text}</p>
+              <a href="/katalog" class="btn btn--cerne">Katalog produktů</a>
+            </div>
+            <div class="blok__foto">
+              <FotoMisto ikona={b.ikona} popisek={b.popisekFoto} />
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="o-nas">
+    <div class="o-nas__text">
+      <h2 class="h1">
+        <span class="bila">O nás:</span> <span class="zluta">česká firma s tradicí</span>
+      </h2>
+      <p>
+        Jsme ryze česká firma s vlastním kapitálem, která sídlí v Dašicích. Už od roku 1997 pomáháme našim
+        zákazníkům v České republice najít ideální řešení na míru pro jejich výrobu. Klademe důraz na kvalitu
+        dodávek – jakost zboží, obalů, formální kompletnost dodávek a jejich bezchybné logistické zajištění. Jsme
+        v souladu s požadavky norem EN ISO 9001:2008 a ISO 9001:2015, přestože již nejsme držiteli certifikace.
+        Při doručování nebezpečného zboží dodržujeme pravidla ADR a využíváme k tomu vlastní dopravní prostředky.
+      </p>
+      <p>
+        Díky našim dlouholetým zkušenostem nabízíme zákazníkům nejen kvalitní produkty, ale i technickou podporu
+        a konzultace. V rámci naší politiky se snažíme maximálně uspokojit požadavky a potřeby našich odběratelů,
+        stejně tak našich zaměstnanců a ostatních zainteresovaných stran a budujeme dlouhodobé a vzájemně
+        prospěšné vztahy.
+      </p>
+      <a href="/katalog" class="btn btn--zlute">Katalog produktů</a>
+    </div>
+    <div class="o-nas__foto">
+      <FotoMisto ikona="ostatni-chemie" popisek="Foto: firma / sklad / provoz" />
+    </div>
+  </section>
+</Base>
+
+<script>
+  const kolo = document.querySelector<HTMLElement>('[data-kolo]');
+  if (kolo) {
+    const popisy = kolo.querySelectorAll<HTMLElement>('[data-popis]');
+    const ukaz = (klic: string): void => {
+      popisy.forEach((p) => p.classList.toggle('is-active', p.dataset.popis === klic));
+    };
+    kolo.querySelectorAll<HTMLElement>('[data-kat]').forEach((ikona) => {
+      const klic = ikona.dataset.kat ?? 'vychozi';
+      ikona.addEventListener('mouseenter', () => ukaz(klic));
+      ikona.addEventListener('focus', () => ukaz(klic));
+      ikona.addEventListener('mouseleave', () => ukaz('vychozi'));
+      ikona.addEventListener('blur', () => ukaz('vychozi'));
+    });
+  }
+</script>
