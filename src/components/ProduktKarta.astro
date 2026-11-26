@@ -8,7 +8,7 @@ interface Props {
 }
 
 const { produkt } = Astro.props;
-const kat = najdiKategorii(produkt.kategorie);
+const kategorie = produkt.vsechnyKategorie.map(najdiKategorii);
 ---
 
 <article class="karta">
@@ -18,7 +18,13 @@ const kat = najdiKategorii(produkt.kategorie);
     </div>
     <h4 class="karta__nazev">{produkt.nazev}</h4>
   </a>
-  <a href={`/kategorie-produktu/${kat.slug}`} class="karta__kategorie" title={kat.nazev} aria-label={kat.nazev}>
-    <IkonaKategorie slug={kat.slug} />
-  </a>
+  <div class="karta__kategorie-seznam">
+    {
+      kategorie.map((kat) => (
+        <a href={`/kategorie-produktu/${kat.slug}`} class="karta__kategorie" title={kat.nazev} aria-label={kat.nazev}>
+          <IkonaKategorie slug={kat.slug} />
+        </a>
+      ))
+    }
+  </div>
 </article>

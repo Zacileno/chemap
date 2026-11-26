@@ -10,16 +10,72 @@ import '../styles/global.css';
 import Hlavicka from '../components/Hlavicka.astro';
 import Paticka from '../components/Paticka.astro';
 
+interface Drobecek {
+  nazev: string;
+  cesta: string;
+}
+
 interface Props {
   title: string;
   description: string;
   /** Active main menu item. */
   aktivni?: 'uvod' | 'katalog' | 'kontakty';
+  /** Breadcrumb trail for structured data (without the homepage, which is added automatically). */
+  drobecky?: Drobecek[];
 }
 
-const { title, description, aktivni } = Astro.props;
+const { title, description, aktivni, drobecky } = Astro.props;
 const canonical = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', Astro.site);
-const ogImage = new URL('/img/logo.png', Astro.site);
+const ogImage = new URL('/img/og-chemap.jpg', Astro.site);
+const site = Astro.site ?? new URL('https://www.chemap.cz');
+const jeUvod = Astro.url.pathname === '/' || Astro.url.pathname === '';
+
+/** Facts below are taken from the client's own Kontakty page. */
+const strukturovanaData = jeUvod
+  ? [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        '@id': `${site.origin}/#organizace`,
+        name: 'CHEMAP, spol. s r.o.',
+        url: site.origin,
+        logo: new URL('/img/logo.png', site).href,
+        telephone: '+420603823916',
+        email: 'chemap@chemap.cz',
+        foundingDate: '1997',
+        taxID: 'CZ25280520',
+        identifier: { '@type': 'PropertyValue', propertyID: 'IČO', value: '25280520' },
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: 'Dašice 475',
+          postalCode: '533 03',
+          addressLocality: 'Dašice',
+          addressCountry: 'CZ',
+        },
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: 'CHEMAP',
+        url: site.origin,
+        inLanguage: 'cs',
+        publisher: { '@id': `${site.origin}/#organizace` },
+      },
+    ]
+  : drobecky && drobecky.length > 0
+    ? [
+        {
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [{ nazev: 'Úvod', cesta: '/' }, ...drobecky].map((d, i) => ({
+            '@type': 'ListItem',
+            position: i + 1,
+            name: d.nazev,
+            item: new URL(d.cesta, site).href.replace(/\/$/, d.cesta === '/' ? '/' : ''),
+          })),
+        },
+      ]
+    : [];
 
 /** Same Google Tag Manager container as the original site (it also loads the CookieYes banner). */
 const GTM_ID = 'GTM-KPHB2GWX';
@@ -38,6 +94,10 @@ const GTM_ID = 'GTM-KPHB2GWX';
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="CHEMAP – chemické produkty" />
+    <meta property="og:site_name" content="CHEMAP" />
     <meta property="og:locale" content="cs_CZ" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
@@ -47,6 +107,11 @@ const GTM_ID = 'GTM-KPHB2GWX';
     <link rel="icon" href="/img/fav32.jpg" type="image/jpeg" />
     <link rel="apple-touch-icon" href="/img/fav256.jpg" />
     <meta name="theme-color" content="#ffe000" />
+    {
+      strukturovanaData.map((data) => (
+        <script type="application/ld+json" set:html={JSON.stringify(data)} />
+      ))
+    }
     {/* Google Tag Manager — runs only on the production domain so test deploys don't skew the stats. */}
     <script is:inline define:vars={{ GTM_ID }}>
       if (/(^|\.)chemap\.cz$/.test(location.hostname)) {

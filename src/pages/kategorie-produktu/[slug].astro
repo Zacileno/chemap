@@ -21,6 +21,10 @@ const seznam = produktyVKategorii(kat.slug);
   title={`${kat.nazev} - Dašice | CHEMAP`}
   description={`${kat.nazev}. Pro více informací se obraťte na specialisty z CHEMAP, spol. s r.o. sídlích v Dašicích u Pardubic.`}
   aktivni="katalog"
+  drobecky={[
+    { nazev: 'Katalog produktů', cesta: '/katalog' },
+    { nazev: kat.nazev, cesta: `/kategorie-produktu/${kat.slug}` },
+  ]}
 >
   <StrankaHero nadpis={kat.nazev} podnadpis="Katalog našich produktů" ikona={kat.slug} />
 

@@ -15,7 +15,8 @@ interface Props {
 }
 
 const { produkt } = Astro.props;
-const kat = najdiKategorii(produkt.kategorie);
+const kategorieProduktu = produkt.vsechnyKategorie.map(najdiKategorii);
+const hlavniKategorie = najdiKategorii(produkt.kategorie);
 const maUdaje = produkt.zakladniUdaje.length > 0;
 const maBaleni = produkt.baleni.length > 0;
 ---
@@ -24,14 +25,27 @@ const maBaleni = produkt.baleni.length > 0;
   title={`${produkt.nazev} | Chemap s.r.o. – Dašice`}
   description={`${produkt.nazev} | Výrobce a distributor chemických látek a přípravků – Chemap`}
   aktivni="katalog"
+  drobecky={[
+    { nazev: 'Katalog produktů', cesta: '/katalog' },
+    { nazev: hlavniKategorie.nazev, cesta: `/kategorie-produktu/${hlavniKategorie.slug}` },
+    { nazev: produkt.nazev, cesta: `/produkty/${produkt.slug}` },
+  ]}
 >
   <section class="produkt-hero">
     <div class="produkt-hero__in">
       <div class="produkt-hero__text">
-        <a href={`/kategorie-produktu/${kat.slug}`} class="stitek">
-          <span class="ikona-kruh ikona-kruh--mala"><IkonaKategorie slug={kat.slug} /></span>
-          {kat.nazev}
-        </a>
+        <div class="stitky">
+          {
+            kategorieProduktu.map((kat) => (
+              <a href={`/kategorie-produktu/${kat.slug}`} class="stitek">
+                <span class="ikona-kruh ikona-kruh--mala">
+                  <IkonaKategorie slug={kat.slug} />
+                </span>
+                {kat.nazev}
+              </a>
+            ))
+          }
+        </div>
         <h1 class="h1 zluta">{produkt.nazev}</h1>
         {produkt.popis.map((odstavec) => <p>{odstavec}</p>)}
       </div>

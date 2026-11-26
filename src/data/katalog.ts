@@ -36,7 +36,10 @@ export interface Soubor {
 export interface Produkt {
   slug: string;
   nazev: string;
+  /** Main category (decides the product photo). */
   kategorie: KategorieSlug;
+  /** All categories the product is listed in, main one first. */
+  vsechnyKategorie: KategorieSlug[];
   popis: string[];
   zakladniUdaje: Udaj[];
   baleni: Baleni[];
@@ -107,6 +110,15 @@ const poradi: readonly string[] = [
   'osakryl-ap-40', 'osakryl-ah-035', 'osakryl-ab-20',
 ];
 
+/** Products listed in more than one category on the original site (besides their main one). */
+const dalsiKategorie: Readonly<Record<string, readonly KategorieSlug[]>> = {
+  'chemsol-emi': ['organicka-rozpoustedla'],
+  perchloretylen: ['organicka-rozpoustedla'],
+  'chlornan-sodny': ['ostatni-chemie'],
+  'sul-tabletovana': ['produkty-pro-cistirny'],
+  'peroxid-vodiku': ['produkty-pro-cistirny'],
+};
+
 /** Client's own photos assigned to products: [detail, card]. */
 const fotky: Readonly<Record<string, readonly [string, string]>> = {
   xylen: ['/img/chemap-sudy-160kg.jpg', '/img/chemap-sudy-160kg-800.jpg'],
@@ -147,6 +159,7 @@ function prevest(raw: RawProdukt): Produkt {
     slug: raw.slug,
     nazev: raw.nazev,
     kategorie: raw.kategorie,
+    vsechnyKategorie: [raw.kategorie, ...(dalsiKategorie[raw.slug] ?? [])],
     popis: raw.popis.filter((p) => p.trim() !== ''),
     zakladniUdaje: raw.zakladni_udaje.filter((u) => u.hodnota.trim() !== ''),
     baleni: raw.baleni.filter((b) => [b.obal, b.objem, b.mnozstvi].some((v) => v.trim() !== '')),
@@ -169,7 +182,7 @@ export function najdiKategorii(slug: KategorieSlug): Kategorie {
 }
 
 export function produktyVKategorii(slug: KategorieSlug): Produkt[] {
-  return produkty.filter((p) => p.kategorie === slug);
+  return produkty.filter((p) => p.vsechnyKategorie.includes(slug));
 }
 
 export const TELEFON = '603 823 916';
