@@ -176,6 +176,10 @@ const MAPA =
       if (!res.ok) throw new Error(String(res.status));
       form.reset();
       if (ok) ok.hidden = false;
+      // Conversion event for Google Tag Manager (trigger: Custom Event "formular_odeslan").
+      const w = window as Window & { dataLayer?: unknown[] };
+      w.dataLayer = w.dataLayer ?? [];
+      w.dataLayer.push({ event: 'formular_odeslan' });
     } catch {
       if (chyba) chyba.hidden = false;
     }
