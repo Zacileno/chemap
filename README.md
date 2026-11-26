@@ -13,13 +13,17 @@ URLs are identical to the previous Webflow site.
 
 ## Editing content
 - Products: `src/data/produkty.json` (name, category, description, basic data, packaging, PDF files)
-- Categories, product order, product photos: `src/data/katalog.ts`
+- Categories, product order, product photos, multi-category products: `src/data/katalog.ts`
+- SEO titles, descriptions and image alt texts: `src/data/seo.ts` (product texts are generated from product data)
 - PDF data sheets: `public/soubory/`
 - Images: `public/img/`
 
-## Photos still to be supplied by the client
-Yellow/grey panels with a category icon (`FotoMisto` component) mark where client photos go:
-homepage (4 category blocks + "O nás") and product photos.
+## Images
+Product and homepage photos are AI-generated illustrations (Gemini); originals are kept outside the repo. The Xylen photo is the client's own.
+
+## SEO
+`/sitemap.xml` is generated at build time, `robots.txt` is in `public/`. `*.vercel.app` deployments send `X-Robots-Tag: noindex`.
+Czech non-breaking spaces are added to every page by `src/middleware.ts`.
 
 ## Tracking
 Google Tag Manager `GTM-KPHB2GWX` (same container as the old site; it also loads the CookieYes banner).
