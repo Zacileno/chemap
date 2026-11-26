@@ -17,7 +17,6 @@ interface Blok {
   nadpis: string;
   text: string;
   ikona: KategorieSlug;
-  popisekFoto: string;
 }
 
 const bloky: Blok[] = [
@@ -25,25 +24,21 @@ const bloky: Blok[] = [
     nadpis: 'Organická rozpouštědla',
     text: 'Organická rozpouštědla se používají pro výrobu nátěrových hmot, lepidel i v textilním průmyslu. Zajišťují správnou konzistenci, přilnavost i efektivní aplikaci. Vyberte si z naší nabídky kvalitních chemických přípravků.',
     ikona: 'organicka-rozpoustedla',
-    popisekFoto: 'Foto: organická rozpouštědla',
   },
   {
     nadpis: 'Akrylátové a vinylacetátové disperze',
     text: 'Akrylátové a vinylacetátové disperze nachází široké uplatnění v průmyslu – od výroby nátěrových hmot, lepidel a tmelů až po penetrace, šlichtování textilií a výrobu přípravků zamezujících okus stromků zvěří. Získejte vynikající výsledky s našimi produkty.',
     ikona: 'disperze',
-    popisekFoto: 'Foto: disperze',
   },
   {
     nadpis: 'Slévárenské přípravky',
     text: 'Slévárenské přípravky jsou nezbytné pro nátěry forem a jader a také separaci a ředění slévárenských nátěrů, kde zajišťují hladký povrch odlitků, minimalizují vady a usnadňují proces odformování. Nabízíme kvalitní produkty, které přispívají k vyšší efektivitě a přesnosti výroby.',
     ikona: 'produkty-pro-slevarenstvi',
-    popisekFoto: 'Foto: slévárenství',
   },
   {
     nadpis: 'Čistírenská rozpouštědla',
     text: 'Čistírenská rozpouštědla jsou ideální pro standardní i ekologické čištění oděvů, kde efektivně odstraňují nečistoty, oleje a tuky, aniž by poškodily textilní materiály. Prohlédněte si naši nabídku rozpouštědel pro profesionální a ekologicky šetrné čištění.',
     ikona: 'produkty-pro-cistirny',
-    popisekFoto: 'Foto: čistírny',
   },
 ];
 ---
@@ -121,7 +116,7 @@ const bloky: Blok[] = [
               <a href="/katalog" class="btn btn--cerne">Katalog produktů</a>
             </div>
             <div class="blok__foto">
-              <FotoMisto ikona={b.ikona} popisek={b.popisekFoto} />
+              <FotoMisto ikona={b.ikona} />
             </div>
           </div>
         ))
@@ -150,7 +145,7 @@ const bloky: Blok[] = [
       <a href="/katalog" class="btn btn--zlute">Katalog produktů</a>
     </div>
     <div class="o-nas__foto">
-      <FotoMisto ikona="ostatni-chemie" popisek="Foto: firma / sklad / provoz" />
+      <FotoMisto ikona="ostatni-chemie" />
     </div>
   </section>
 </Base>
