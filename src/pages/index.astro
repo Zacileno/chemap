@@ -15,7 +15,7 @@ const vyhody = [
 interface Blok {
   nadpis: string;
   text: string;
-  /** Image name in /img/uvod (without extension). */
+  /** Illustration name in /img/uvod (SVG, without extension). */
   foto: string;
   /** What is in the picture. */
   alt: string;
@@ -26,25 +26,25 @@ const bloky: Blok[] = [
     nadpis: 'Organická rozpouštědla',
     text: 'Organická rozpouštědla se používají pro výrobu nátěrových hmot, lepidel i v textilním průmyslu. Zajišťují správnou konzistenci, přilnavost i efektivní aplikaci. Vyberte si z naší nabídky kvalitních chemických přípravků.',
     foto: 'organicka-rozpoustedla',
-    alt: 'Laboratorní sklo s organickými rozpouštědly na žlutém pozadí',
+    alt: 'Ilustrace: Erlenmeyerova baňka s rozpouštědlem a bublinkami',
   },
   {
     nadpis: 'Akrylátové a vinylacetátové disperze',
     text: 'Akrylátové a vinylacetátové disperze nachází široké uplatnění v průmyslu – od výroby nátěrových hmot, lepidel a tmelů až po penetrace, šlichtování textilií a výrobu přípravků zamezujících okus stromků zvěří. Získejte vynikající výsledky s našimi produkty.',
     foto: 'disperze',
-    alt: 'Bílá disperze vylévaná z kádinky',
+    alt: 'Ilustrace: kádinka s disperzí a skleněnou tyčinkou',
   },
   {
     nadpis: 'Slévárenské přípravky',
     text: 'Slévárenské přípravky jsou nezbytné pro nátěry forem a jader a také separaci a ředění slévárenských nátěrů, kde zajišťují hladký povrch odlitků, minimalizují vady a usnadňují proces odformování. Nabízíme kvalitní produkty, které přispívají k vyšší efektivitě a přesnosti výroby.',
     foto: 'slevarenstvi',
-    alt: 'Kovový odlitek, formovací směs a štětec se slévárenským nátěrem',
+    alt: 'Ilustrace: licí pánev nalévá roztavený kov do formy',
   },
   {
     nadpis: 'Čistírenská rozpouštědla',
     text: 'Čistírenská rozpouštědla jsou ideální pro standardní i ekologické čištění oděvů, kde efektivně odstraňují nečistoty, oleje a tuky, aniž by poškodily textilní materiály. Prohlédněte si naši nabídku rozpouštědel pro profesionální a ekologicky šetrné čištění.',
     foto: 'cistirny',
-    alt: 'Sako v ochranném obalu, složená košile a lahev rozpouštědla',
+    alt: 'Ilustrace: rozprašovač s čisticím rozpouštědlem',
   },
 ];
 ---
@@ -122,15 +122,7 @@ const bloky: Blok[] = [
               <a href="/katalog" class="btn btn--cerne">Katalog produktů</a>
             </div>
             <div class="blok__foto">
-              <img
-                src={`/img/uvod/${b.foto}.webp`}
-                srcset={`/img/uvod/${b.foto}-600.webp 600w, /img/uvod/${b.foto}.webp 1200w`}
-                sizes="(max-width: 767px) 100vw, 50vw"
-                alt={b.alt}
-                width="1200"
-                height="900"
-                loading="lazy"
-              />
+              <img src={`/img/uvod/${b.foto}.svg`} alt={b.alt} width="800" height="600" loading="lazy" />
             </div>
           </div>
         ))
