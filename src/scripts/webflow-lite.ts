@@ -214,37 +214,37 @@ efekty.forEach((el) => {
   el.style.transform = el.dataset.ix === 'slide-right' ? 'translateX(100px)' : 'scale(0)';
 });
 
+// Faster than the original Webflow timings (the original felt too late while scrolling):
+// elements visible on page load keep the intro order at ~40 % of the original delays,
+// elements further down start as soon as they begin to enter the screen, with a short delay.
+const DELKA_ANIMACE = 700;
+const vyskaOkna = window.innerHeight;
+const viditelneHned = new Set(efekty.filter((el) => el.getBoundingClientRect().top < vyskaOkna));
+
 function spustEfekt(el: HTMLElement): void {
-  const delay = Number(el.dataset.ixDelay ?? '0');
+  const puvodniDelay = Number(el.dataset.ixDelay ?? '0');
+  const delay = viditelneHned.has(el) ? Math.round(puvodniDelay * 0.4) : Math.min(puvodniDelay, 150);
   const zacatek = el.dataset.ix === 'slide-right' ? 'translateX(100px)' : 'scale(0)';
   const konec = el.dataset.ix === 'slide-right' ? 'translateX(0px)' : 'scale(1)';
   void animuj(el, [
     { opacity: '0', transform: zacatek },
     { opacity: '1', transform: konec },
-  ], { duration: 1000, delay, easing: EASE.outQuart });
+  ], { duration: DELKA_ANIMACE, delay, easing: EASE.outQuart });
 }
 
-// Webflow fires when the element passes the given % (offset) of the viewport from the bottom.
-const pozorovatele = new Map<string, IntersectionObserver>();
-efekty.forEach((el) => {
-  const offset = el.dataset.ixOffset ?? '0';
-  let io = pozorovatele.get(offset);
-  if (!io) {
-    io = new IntersectionObserver(
-      (zaznamy, obs) => {
-        zaznamy.forEach((z) => {
-          if (z.isIntersecting) {
-            obs.unobserve(z.target);
-            spustEfekt(z.target as HTMLElement);
-          }
-        });
-      },
-      { rootMargin: `0px 0px -${offset}% 0px`, threshold: 0 },
-    );
-    pozorovatele.set(offset, io);
-  }
-  io.observe(el);
-});
+// Trigger slightly before the element reaches the screen (10 % of the viewport below it).
+const pozorovatel = new IntersectionObserver(
+  (zaznamy, obs) => {
+    zaznamy.forEach((z) => {
+      if (z.isIntersecting) {
+        obs.unobserve(z.target);
+        spustEfekt(z.target as HTMLElement);
+      }
+    });
+  },
+  { rootMargin: '0px 0px 10% 0px', threshold: 0 },
+);
+efekty.forEach((el) => pozorovatel.observe(el));
 
 /* ---------- Homepage card stack: cards shrink to 70 % while scrolling (≥ 768 px) ---------- */
 const kartyObal = $('[data-ix-karty]');
