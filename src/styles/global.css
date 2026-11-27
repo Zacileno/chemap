@@ -1375,3 +1375,12 @@ h4 {
     aspect-ratio: 4 / 5;
   }
 }
+
+/* Homepage illustrations: always whole and centred, background blends with the SVG edges */
+.blok__foto {
+  background: #fcd821;
+}
+
+.blok__foto img[src$='.svg'] {
+  object-fit: contain;
+}
