@@ -5,12 +5,17 @@ import '@fontsource/comfortaa/600.css';
 import '@fontsource/comfortaa/700.css';
 import '@fontsource/open-sans/300.css';
 import '@fontsource/open-sans/400.css';
+import '@fontsource/open-sans/500.css';
 import '@fontsource/open-sans/600.css';
 import '@fontsource/open-sans/700.css';
-import '../styles/global.css';
+import '@fontsource/open-sans/800.css';
+import '../styles/webflow.css';
+import '../styles/head-custom.css';
+import '../styles/doplnky.css';
+import globalEmbed from '../styles/global-embed.css?raw';
 import { getSecret } from 'astro:env/server';
-import Hlavicka from '../components/Hlavicka.astro';
-import Paticka from '../components/Paticka.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
 
 interface Drobecek {
   nazev: string;
@@ -20,13 +25,17 @@ interface Drobecek {
 interface Props {
   title: string;
   description: string;
-  /** Active main menu item. */
-  aktivni?: 'uvod' | 'katalog' | 'kontakty';
+  /** Body class of the original page template (body, body-2 …). */
+  bodyClass: string;
+  /** Pages with the page-wrapper + main + global styles embed (all except product detail). */
+  obal?: boolean;
+  /** Standalone page without navigation and footer (404, as on the original). */
+  bezNavigace?: boolean;
   /** Breadcrumb trail for structured data (without the homepage, which is added automatically). */
   drobecky?: Drobecek[];
 }
 
-const { title, description, aktivni, drobecky } = Astro.props;
+const { title, description, bodyClass, obal = true, bezNavigace = false, drobecky } = Astro.props;
 const canonical = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', Astro.site);
 // The share image must load from the domain where this build actually runs. Until the launch the
 // production domain is chemap.vercel.app; once chemap.cz is added in Vercel it switches automatically.
@@ -35,7 +44,7 @@ const ogImage = new URL('/img/og-chemap.jpg', produkcniDomena ? `https://${produ
 const site = Astro.site ?? new URL('https://www.chemap.cz');
 const jeUvod = Astro.url.pathname === '/' || Astro.url.pathname === '';
 
-/** Facts below are taken from the client's own Kontakty page. */
+/** Facts below are taken from the client's own Kontakty page (verified in ARES). */
 const strukturovanaData = jeUvod
   ? [
       {
@@ -112,7 +121,14 @@ const GTM_ID = 'GTM-KPHB2GWX';
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon-48.png" type="image/png" sizes="48x48" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
-    <meta name="theme-color" content="#ffe000" />
+    <script is:inline>
+      // Same html classes the Webflow runtime adds (some styles depend on them).
+      (function (d) {
+        var n = d.documentElement;
+        n.className += ' w-mod-js w-mod-ix';
+        if ('ontouchstart' in window || (window.DocumentTouch && d instanceof window.DocumentTouch)) n.className += ' w-mod-touch';
+      })(document);
+    </script>
     {
       strukturovanaData.map((data) => (
         <script type="application/ld+json" set:html={JSON.stringify(data)} />
@@ -134,7 +150,23 @@ const GTM_ID = 'GTM-KPHB2GWX';
       }
     </script>
   </head>
-  <body>
+  <body class={bodyClass || undefined}>
+    {!bezNavigace && <Nav />}
+    {
+      obal ? (
+        <div class="page-wrapper">
+          <div class="global-styles w-embed">
+            <style is:inline set:html={globalEmbed} />
+          </div>
+          <main class="main-wrapper">
+            <slot />
+          </main>
+        </div>
+      ) : (
+        <slot />
+      )
+    }
+    {!bezNavigace && <Footer />}
     <noscript
       ><iframe
         src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
@@ -144,10 +176,8 @@ const GTM_ID = 'GTM-KPHB2GWX';
         title="Google Tag Manager"></iframe
       ></noscript
     >
-    <Hlavicka aktivni={aktivni} />
-    <main>
-      <slot />
-    </main>
-    <Paticka />
+    <script>
+      import '../scripts/webflow-lite';
+    </script>
   </body>
 </html>

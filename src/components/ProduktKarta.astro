@@ -1,31 +1,43 @@
 ---
 import type { Produkt } from '../data/katalog';
 import { najdiKategorii } from '../data/katalog';
-import IkonaKategorie from './IkonaKategorie.astro';
-import { altFoto } from '../data/seo';
 
 interface Props {
   produkt: Produkt;
+  /** Catalogue cards also show the category icons (as on the original /katalog). */
+  sIkonami?: boolean;
 }
 
-const { produkt } = Astro.props;
+const { produkt, sIkonami = false } = Astro.props;
 const kategorie = produkt.vsechnyKategorie.map(najdiKategorii);
+const nazevSoboru = (url: string): string => url.replace(/-500\.webp$/, '.webp');
 ---
 
-<article class="karta">
-  <a href={`/produkty/${produkt.slug}`} class="karta__odkaz">
-    <div class="karta__foto">
-      <img src={produkt.fotoMala} alt={altFoto(produkt)} loading="lazy" width="600" height="450" />
-    </div>
-    <h4 class="karta__nazev">{produkt.nazev}</h4>
+<div role="listitem" class:list={[sIkonami ? 'collection-item w-dyn-item' : 'w-dyn-item']}>
+  <a href={`/produkty/${produkt.slug}`} class="product-archive w-inline-block" data-hover-zluta>
+    <img
+      src={produkt.fotoMala}
+      srcset={`${produkt.fotoMala} 500w, ${nazevSoboru(produkt.fotoMala)} 1536w`}
+      sizes="(max-width: 479px) 92vw, (max-width: 767px) 45vw, (max-width: 991px) 30vw, 22vw"
+      loading="lazy"
+      alt=""
+      class="image-3"
+    />
+    <div class="div-block-18"><h4 class="heading">{produkt.nazev}</h4></div>
   </a>
-  <div class="karta__kategorie-seznam">
-    {
-      kategorie.map((kat) => (
-        <a href={`/kategorie-produktu/${kat.slug}`} class="karta__kategorie" title={kat.nazev} aria-label={kat.nazev}>
-          <IkonaKategorie slug={kat.slug} />
-        </a>
-      ))
-    }
-  </div>
-</article>
+  {
+    sIkonami && (
+      <div class="collection-list-wrapper w-dyn-list">
+        <div role="list" class="collection-list-3 w-dyn-items w-row">
+          {kategorie.map((k) => (
+            <div role="listitem" class="w-dyn-item w-col w-col-6">
+              <a href={`/kategorie-produktu/${k.slug}`} class="link-block-5 w-inline-block">
+                <img src={k.ikona} loading="lazy" alt={k.nazev} class="image-6" />
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    )
+  }
+</div>

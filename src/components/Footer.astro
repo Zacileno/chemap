@@ -1,0 +1,43 @@
+---
+const cesta = Astro.url.pathname.replace(/\/$/, '') || '/';
+const odkazy = [
+  { href: '/', text: 'úvod' },
+  { href: '/katalog', text: 'katalog produktů' },
+  { href: '/kontakty', text: 'kontakty' },
+];
+const rok = new Date().getFullYear();
+---
+
+<footer class="footer4_component">
+  <div class="padding-global-2">
+    <div class="container-large-2">
+      <div class="padding-vertical padding-xxlarge">
+        <div class="padding-bottom padding-xxlarge">
+          <div class="w-layout-grid footer4_top-wrapper">
+            <a href="/" id="w-node-aab80df1-6b2c-1362-2205-8251edc22457-edc22451" class:list={['footer4_logo-link w-nav-brand', { 'w--current': cesta === '/' }]}>
+              <img
+                src="/assets/67c4901abd1fd36cc5414f60_negativni_zakladni_varianta_zluta_RGB.png"
+                srcset="/assets/67c4901abd1fd36cc5414f60_negativni_zakladni_varianta_zluta_RGB-p-500.png 500w, /assets/67c4901abd1fd36cc5414f60_negativni_zakladni_varianta_zluta_RGB-p-800.png 800w, /assets/67c4901abd1fd36cc5414f60_negativni_zakladni_varianta_zluta_RGB.png 1237w"
+                sizes="(max-width: 479px) 98vw, (max-width: 1237px) 100vw, 1237px"
+                alt="CHEMAP chemické produkty"
+                loading="lazy"
+                class="footer4_logo"
+              />
+            </a>
+            <div class="w-layout-grid footer4_link-list">
+              {odkazy.map((o) => <a href={o.href} class:list={['footer4_link', { 'w--current': cesta === o.href }]}>{o.text}</a>)}
+            </div>
+          </div>
+        </div>
+        <div class="divider-horizontal"></div>
+        <div class="padding-top padding-medium">
+          <div class="w-layout-grid footer4_bottom-wrapper">
+            <div class="w-embed w-script">
+              <p>© <span data-rok>{rok}</span> Všechna práva vyhrazena | CHEMAP, spol. s r.o. | Dašice</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

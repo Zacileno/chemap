@@ -1,5 +1,5 @@
 /**
- * SEO titles, descriptions and image alt texts.
+ * SEO titles and descriptions.
  * Only facts that are on the site itself are used (product data, claims from the homepage).
  * Targets: title 50–60 characters, description 150–160 characters.
  */
@@ -30,26 +30,6 @@ const druh: Record<KategorieSlug, string> = {
   'sorbenty-a-filtrace': 'sorbent a filtrace',
   'ostatni-chemie': 'průmyslová chemie',
 };
-
-/** Alt texts describing what is actually in each category illustration. */
-export const altFotoKategorie: Record<KategorieSlug, string> = {
-  disperze: 'Kádinka s mléčně bílou disperzí a kapátko',
-  'produkty-pro-slevarenstvi': 'Licí pánev, ze které teče roztavený kov',
-  'produkty-pro-cistirny': 'Rozprašovač s čisticím rozpouštědlem a mýdlo',
-  'lepidla-na-drevo': 'Lahev lepidla na dřevo a borovicový hranol s lepidlem',
-  'organicka-rozpoustedla': 'Hnědá skleněná lahvička se zátkou',
-  'sorbenty-a-filtrace': 'Pytel, granulovaný sorbent, filtrační blok a role filtračního papíru',
-  'ostatni-chemie': 'Erlenmeyerova baňka s kapalinou a Petriho miska s bílým práškem',
-};
-
-const altVlastniFoto: Readonly<Record<string, string>> = {
-  xylen: 'Ocelové sudy CHEMAP 160 kg na paletě ve skladu',
-};
-
-/** Alt text of the product photo: describes what is in the picture. */
-export function altFoto(p: Produkt): string {
-  return altVlastniFoto[p.slug] ?? altFotoKategorie[p.kategorie];
-}
 
 export function titleProduktu(p: Produkt): string {
   const d = druh[p.kategorie];

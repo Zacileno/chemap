@@ -1,0 +1,126 @@
+.herolink:hover .text-block {
+color: #000!important;
+}
+
+.icons-wrapper {
+  position: relative;
+  width: 700px;
+  height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-item {
+  position: absolute;
+  width: 110px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.icon-item:hover {
+  transform: scale(1.2);
+}
+
+.default-icon {
+  position: absolute;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.hover-icon {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.icon-item:hover .default-icon {
+  opacity: 0;
+}
+
+.icon-item:hover .hover-icon {
+  opacity: 1;
+}
+
+.icon-item:hover {
+  filter: drop-shadow(0px 0px 15px yellow);
+}
+
+
+.icon-item.active {
+  filter: drop-shadow(0px 0px 15px yellow);
+  transform: scale(1.2);
+}
+
+
+.icon-item.active .default-icon {
+  opacity: 0;
+}
+
+.icon-item.active .hover-icon {
+  opacity: 1;
+}
+
+
+.center-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: yellow;
+  font-size: 22px;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+
+.center-text.main-text {
+  display: block;
+  opacity: 1;
+}
+
+
+.center-text:not(.main-text) {
+  display: none;
+}
+
+
+
+
+@media screen and (max-width: 1200px) {
+  .icons-wrapper {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    padding: 20px;
+    position: static;
+  }
+
+  .icon-item {
+    position: static !important;
+    width: 50px;
+    height: 60px;
+    transform: none !important;
+    flex: 0 0 auto;
+    margin: 20px;
+  }
+
+  .icon-item.active {
+    transform: none !important;
+    filter: none !important;
+  }
+
+  .center-text {
+    position: static;
+    transform: none;
+    margin-top: 20px;
+    font-size: 16px;
+    text-align: center;
+  }
+}

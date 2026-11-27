@@ -14,16 +14,17 @@ URLs are identical to the previous Webflow site.
 ## Editing content
 - Products: `src/data/produkty.json` (name, category, description, basic data, packaging, PDF files)
 - Categories, product order, product photos, multi-category products: `src/data/katalog.ts`
-- SEO titles, descriptions and image alt texts: `src/data/seo.ts` (product texts are generated from product data)
+- SEO titles and descriptions: `src/data/seo.ts` (product texts are generated from product data)
+- Original formatted product descriptions: `src/data/popisy.json`
 - PDF data sheets: `public/soubory/`
 - Images: `public/img/`
 
-## Images
-Product and homepage photos are AI-generated illustrations (Gemini); originals are kept outside the repo. The Xylen photo is the client's own.
+## Design
+1:1 rebuild of the original Webflow site: original stylesheet (`src/styles/webflow.css`), original images and icons (`public/assets`, `public/img/orig`) and the original interactions re-implemented without Webflow/jQuery in `src/scripts/webflow-lite.ts`.
+Previous own-design version: git tag `v1-vlastni-styl`.
 
 ## SEO
 `/sitemap.xml` is generated at build time, `robots.txt` is in `public/`. `*.vercel.app` deployments send `X-Robots-Tag: noindex`.
-Czech non-breaking spaces are added to every page by `src/middleware.ts`.
 
 ## Tracking
 Google Tag Manager `GTM-KPHB2GWX` (same container as the old site; it also loads the CookieYes banner).

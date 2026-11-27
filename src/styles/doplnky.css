@@ -1,0 +1,33 @@
+/* Small additions on top of the original styles (things the Webflow runtime used to handle). */
+
+/* Spam trap field in the contact form */
+.formular-past {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  opacity: 0 !important;
+}
+
+/* Lightbox fade (Webflow animates the backdrop opacity) */
+.w-lightbox-backdrop {
+  transition: opacity 0.3s ease;
+}
+
+.w-lightbox-backdrop.is-open {
+  opacity: 1;
+}
+
+html.w-lightbox-noscroll {
+  overflow: hidden;
+}
+
+/* Hidden catalogue cards on other pages of the pagination */
+.collection-item[hidden] {
+  display: none !important;
+}
+
+/* The original repeats one grid id on every catalogue card; the same placement as a class rule */
+.collection-list-2 > .collection-item {
+  place-self: auto center;
+}

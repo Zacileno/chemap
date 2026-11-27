@@ -1,0 +1,52 @@
+/* Site-wide custom code (head) */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -o-font-smoothing: antialiased;
+  -webkit-appearance:none;
+}
+  
+  
+  html, body {
+    overflow-x: hidden;
+    width: 100vw;
+}
+
+  
+  
+  /* scroll style */
+::-webkit-scrollbar-button {
+	background-repeat: no-repeat;
+	width: 8px;
+	height: 0px; 
+}
+
+::-webkit-scrollbar-track {
+	background-color: #000; 
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #ffe000b0;
+	background-position: center;
+	background-repeat: no-repeat; 
+}
+
+::-webkit-resizer {
+	background-repeat: no-repeat;
+	width: 12px;
+	height: 0px; 
+}
+
+::-webkit-scrollbar {
+	width: 12px; 
+}
+
+@media screen and (max-width: 991px) {
+.navbar2_link.w--current {
+    color: #ffe000;
+}
+
+.navbar2_dropdown-link.w--current {
+    color: #ffe000;
+}
+}

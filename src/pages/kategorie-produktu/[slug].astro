@@ -1,7 +1,6 @@
 ---
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
-import StrankaHero from '../../components/StrankaHero.astro';
 import ProduktKarta from '../../components/ProduktKarta.astro';
 import { kategorie, produktyVKategorii } from '../../data/katalog';
 import type { Kategorie } from '../../data/katalog';
@@ -21,17 +20,27 @@ const seznam = produktyVKategorii(kat.slug);
 <Base
   title={seoKategorie[kat.slug].title}
   description={seoKategorie[kat.slug].description}
-  aktivni="katalog"
+  bodyClass="body-4"
   drobecky={[
     { nazev: 'Katalog produktů', cesta: '/katalog' },
     { nazev: kat.nazev, cesta: `/kategorie-produktu/${kat.slug}` },
   ]}
 >
-  <StrankaHero nadpis={kat.nazev} podnadpis="Katalog našich produktů" ikona={kat.slug} />
-
-  <section class="seznam seznam--svetly">
-    <div class="mrizka">
-      {seznam.map((p) => <ProduktKarta produkt={p} />)}
+  <section class="section kontakty">
+    <div class="div-block kontakty">
+      <img src={kat.ikona} loading="lazy" alt="" class="image-4" />
+      <h1 class="heading-style-h1 kontakty center">{kat.nazev}</h1>
+      <p class="text-size-medium kontakty">Katalog našich produktů</p>
     </div>
   </section>
+  <section class="section-3">
+    <div class="div-block-21">
+      <div class="w-dyn-list">
+        <div role="list" class="collection-list w-dyn-items">
+          {seznam.map((p) => <ProduktKarta produkt={p} />)}
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="background-molekula"></div>
 </Base>

@@ -1,13 +1,13 @@
 ---
 import Base from '../layouts/Base.astro';
-import StrankaHero from '../components/StrankaHero.astro';
-import Ikona from '../components/Ikona.astro';
 import { seoStranky } from '../data/seo';
 
 interface Kontakt {
   nadpis?: string;
   jmeno: string;
-  funkce?: string;
+  /** Grid ids of the original layout: [phone, e-mail]. */
+  idPolozek: [string, string];
+  funkce?: { text: string; trida: string };
   telefon: string;
   telefonHref: string;
   email: string;
@@ -17,6 +17,7 @@ const lide: Kontakt[] = [
   {
     nadpis: 'Obchod, technické poradenství',
     jmeno: 'Dalibor Műller',
+    idPolozek: ['w-node-_0934bb67-1db6-33d3-2fee-5eefa74b9039-921dae51', 'w-node-_0934bb67-1db6-33d3-2fee-5eefa74b9034-921dae51'],
     telefon: '+420 603 823 916',
     telefonHref: 'tel:+420603823916',
     email: 'dalibor.muller@chemap.cz',
@@ -24,19 +25,26 @@ const lide: Kontakt[] = [
   {
     nadpis: 'Vedení společnosti',
     jmeno: 'Dalibor Műller',
-    funkce: 'Jednatel',
+    idPolozek: ['w-node-df3b636d-f1b7-bb58-c03e-fd23ba5b6cf5-921dae51', 'w-node-df3b636d-f1b7-bb58-c03e-fd23ba5b6cfb-921dae51'],
+    funkce: { text: 'Jednatel', trida: 'text-block-2' },
     telefon: '+420 603 823 916',
     telefonHref: 'tel:+420603823916',
     email: 'reditel@chemap.cz',
   },
   {
     jmeno: 'Vladimír Čech',
-    funkce: 'Zmocněnec pro jakost, technik, sklad',
+    idPolozek: ['w-node-_263ce503-b857-c656-1b15-8a7dae4fde6d-921dae51', 'w-node-_263ce503-b857-c656-1b15-8a7dae4fde73-921dae51'],
+    funkce: { text: 'Zmocněnec pro jakost, technik, sklad', trida: 'text-block-3' },
     telefon: '+420 605 299 171',
     telefonHref: 'tel:+420605299171',
     email: 'vladimir.cech@chemap.cz',
   },
 ];
+
+const ikonaTelefon =
+  'M17.707 12.293C17.6142 12.2 17.504 12.1263 17.3827 12.076C17.2614 12.0257 17.1313 11.9998 17 11.9998C16.8687 11.9998 16.7386 12.0257 16.6173 12.076C16.496 12.1263 16.3858 12.2 16.293 12.293L14.699 13.887C13.96 13.667 12.581 13.167 11.707 12.293C10.833 11.419 10.333 10.04 10.113 9.30096L11.707 7.70696C11.7999 7.61417 11.8737 7.50397 11.924 7.38265C11.9743 7.26134 12.0002 7.13129 12.0002 6.99996C12.0002 6.86862 11.9743 6.73858 11.924 6.61726C11.8737 6.49595 11.7999 6.38575 11.707 6.29296L7.707 2.29296C7.61421 2.20001 7.50401 2.12627 7.38269 2.07596C7.26138 2.02565 7.13133 1.99976 7 1.99976C6.86866 1.99976 6.73862 2.02565 6.6173 2.07596C6.49599 2.12627 6.38579 2.20001 6.293 2.29296L3.581 5.00496C3.201 5.38496 2.987 5.90696 2.995 6.43996C3.018 7.86396 3.395 12.81 7.293 16.708C11.191 20.606 16.137 20.982 17.562 21.006H17.59C18.118 21.006 18.617 20.798 18.995 20.42L21.707 17.708C21.7999 17.6152 21.8737 17.505 21.924 17.3837C21.9743 17.2623 22.0002 17.1323 22.0002 17.001C22.0002 16.8696 21.9743 16.7396 21.924 16.6183C21.8737 16.4969 21.7999 16.3867 21.707 16.294L17.707 12.293ZM17.58 19.005C16.332 18.984 12.062 18.649 8.707 15.293C5.341 11.927 5.015 7.64196 4.995 6.41896L7 4.41396L9.586 6.99996L8.293 8.29296C8.17546 8.41041 8.08904 8.55529 8.04155 8.71453C7.99406 8.87376 7.987 9.04231 8.021 9.20496C8.045 9.31996 8.632 12.047 10.292 13.707C11.952 15.367 14.679 15.954 14.794 15.978C14.9565 16.0129 15.1253 16.0064 15.2846 15.9591C15.444 15.9117 15.5889 15.825 15.706 15.707L17 14.414L19.586 17L17.58 19.005V19.005Z';
+const ikonaEmail =
+  'M20 4H4C2.897 4 2 4.897 2 6V18C2 19.103 2.897 20 4 20H20C21.103 20 22 19.103 22 18V6C22 4.897 21.103 4 20 4ZM20 6V6.511L12 12.734L4 6.512V6H20ZM4 18V9.044L11.386 14.789C11.5611 14.9265 11.7773 15.0013 12 15.0013C12.2227 15.0013 12.4389 14.9265 12.614 14.789L20 9.044L20.002 18H4Z';
 
 const MAPA =
   'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2563.6544656529572!2d15.896006312136599!3d50.01783131830014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470dcedc2d309aeb%3A0x50fecfd6c1e78f42!2sChemap%2C%20spol.%20S%20R.o.!5e0!3m2!1scs!2scz!4v1754509452384!5m2!1scs!2scz';
@@ -45,145 +53,165 @@ const MAPA =
 <Base
   title={seoStranky.kontakty.title}
   description={seoStranky.kontakty.description}
-  aktivni="kontakty"
+  bodyClass="body-2"
   drobecky={[{ nazev: 'Kontakty', cesta: '/kontakty' }]}
 >
-  <StrankaHero
-    nadpis="Kontakty"
-    podnadpis="Máte dotazy, připomínky anebo zájem o naše služby? Neváhejte nás kontaktovat!"
-  />
-
-  <section class="kontakt">
-    <div class="kontakt__mrizka">
-      <div class="kontakt__lide">
-        {
-          lide.map((k) => (
-            <div class="kontakt__osoba">
-              {k.nadpis && <h2 class="h3">{k.nadpis}</h2>}
-              <p class="kontakt__jmeno">{k.jmeno}</p>
-              {k.funkce && <p class="kontakt__funkce">{k.funkce}</p>}
-              <ul class="kontakt__seznam">
-                <li>
-                  <a href={k.telefonHref}>
-                    <Ikona nazev="telefon" class="kontakt__ikona" />
-                    {k.telefon}
-                  </a>
-                </li>
-                <li>
-                  <a href={`mailto:${k.email}`}>
-                    <Ikona nazev="email" class="kontakt__ikona" />
-                    {k.email}
-                  </a>
-                </li>
-              </ul>
+  <section class="section kontakty">
+    <div class="div-block kontakty">
+      <h1 data-ix="grow" data-ix-delay="400" style="opacity:0" class="heading-style-h1 kontakty center">Kontakty</h1>
+      <p data-ix="grow" data-ix-delay="1000" style="opacity:0" class="text-size-medium kontakty">
+        Máte dotazy, připomínky anebo zájem o naše služby? Neváhejte nás kontaktovat!
+      </p>
+    </div>
+  </section>
+  <section class="section_contact5">
+    <div class="padding-global-3">
+      <div class="container-large-3">
+        <div data-ix="grow" data-ix-delay="1500" style="opacity:0" class="padding-section-large">
+          <div class="contact5_component">
+            <div class="w-layout-grid contact5_content">
+              <div class="contact5_content-left">
+                {
+                  lide.map((k) => (
+                    <div class="margin-bottom margin-medium">
+                      <div class="contact5_heading-wrapper">
+                        {k.nadpis && (
+                          <div class="margin-bottom margin-small">
+                            <h2 class="heading-style-h2-2">{k.nadpis}</h2>
+                          </div>
+                        )}
+                        <p class="text-size-medium-3">{k.jmeno}</p>
+                        {k.funkce && <div class={k.funkce.trida}>{k.funkce.text}</div>}
+                      </div>
+                      <div class="contact5_contact-list">
+                        <div id={k.idPolozek[0]} class="contact5_item">
+                          <a href={k.telefonHref} class="link-block-2 w-inline-block">
+                            <div class="contact5_icon-wrapper">
+                              <div class="icon-embed-xsmall-3 w-embed">
+                                <svg width=" 100%" height=" 100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d={ikonaTelefon} fill="currentColor" />
+                                </svg>
+                              </div>
+                            </div>
+                            <div>{k.telefon}</div>
+                          </a>
+                        </div>
+                        <div id={k.idPolozek[1]} class="contact5_item">
+                          <a href={`mailto:${k.email}`} class="link-block-3 w-inline-block">
+                            <div class="contact5_icon-wrapper">
+                              <div class="icon-embed-xsmall-3 w-embed">
+                                <svg width=" 100%" height=" 100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d={ikonaEmail} fill="currentColor" />
+                                </svg>
+                              </div>
+                            </div>
+                            <div>{k.email}</div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                }
+              </div>
+              <div class="contact5_form-block w-form">
+                <form id="wf-form-Webov-formul" name="wf-form-Webov-formul" method="post" action="/api/kontakt" class="contact5_form" data-formular>
+                  <div class="form_field-wrapper">
+                    <label for="Jm-no" class="form_field-label">Jméno</label>
+                    <input class="form_input w-input" maxlength="256" name="jmeno" placeholder="" type="text" id="Jm-no" required autocomplete="name" />
+                  </div>
+                  <div class="div-block-3">
+                    <div class="form_field-wrapper">
+                      <label for="Telefon" class="form_field-label">Telefon</label>
+                      <input class="form_input w-input" maxlength="256" name="telefon" placeholder="" type="tel" id="Telefon" autocomplete="tel" />
+                    </div>
+                    <div class="form_field-wrapper">
+                      <label for="E-mail" class="form_field-label">E-mail</label>
+                      <input class="form_input w-input" maxlength="256" name="email" placeholder="" type="email" id="E-mail" required autocomplete="email" />
+                    </div>
+                  </div>
+                  <div class="form_field-wrapper">
+                    <label for="Zpr-va" class="form_field-label">Zpráva</label>
+                    <textarea id="Zpr-va" name="zprava" maxlength="5000" placeholder="" required class="form_input is-text-area w-input"></textarea>
+                  </div>
+                  <div class="margin-bottom margin-xsmall">
+                    <label class="w-checkbox form_checkbox">
+                      <div class="w-checkbox-input w-checkbox-input--inputType-custom form_checkbox-icon" data-checkbox-ikona></div>
+                      <input type="checkbox" name="gdpr" id="GDPR" required style="opacity:0;position:absolute;z-index:-1" />
+                      <span class="form_checkbox-label text-size-small w-form-label"
+                        >Odesláním formuláře souhlasím se zpracováním <a
+                          href="/soubory/zasady-ochrany-osobnich-udaju-chemap.pdf"
+                          class="text-style-link"
+                          target="_blank"
+                          rel="noopener">Osobních údajů</a
+                        ></span
+                      >
+                    </label>
+                  </div>
+                  <input type="text" name="web" tabindex="-1" autocomplete="off" aria-hidden="true" class="formular-past" />
+                  <input type="submit" id="w-node-_0934bb67-1db6-33d3-2fee-5eefa74b9058-921dae51" data-wait="Prosím čekejte..." class="button-2 w-button" value="Odeslat" />
+                </form>
+                <div class="form_message-success-wrapper w-form-done" data-ok>
+                  <div class="form_message-success"><div class="success-text">Děkujeme! Vaše zpráva byla úspěšně odeslána.</div></div>
+                </div>
+                <div class="form_message-error-wrapper w-form-fail" data-chyba>
+                  <div class="form_message-error"><div class="error-text">Ups! Něco se pokazilo. Zkuste formulář odeslat znovu.</div></div>
+                </div>
+              </div>
             </div>
-          ))
-        }
-      </div>
-
-      <form class="formular" method="post" action="/api/kontakt" data-formular novalidate>
-        <label class="formular__pole">
-          <span>Jméno</span>
-          <input type="text" name="jmeno" maxlength="256" required autocomplete="name" />
-        </label>
-        <div class="formular__radek">
-          <label class="formular__pole">
-            <span>Telefon</span>
-            <input type="tel" name="telefon" maxlength="256" autocomplete="tel" />
-          </label>
-          <label class="formular__pole">
-            <span>E-mail</span>
-            <input type="email" name="email" maxlength="256" required autocomplete="email" />
-          </label>
+          </div>
         </div>
-        <label class="formular__pole">
-          <span>Zpráva</span>
-          <textarea name="zprava" maxlength="5000" rows="6" required></textarea>
-        </label>
-        <label class="formular__souhlas">
-          <input type="checkbox" name="gdpr" required />
-          <span
-            >Odesláním formuláře souhlasím se zpracováním <a
-              href="/soubory/zasady-ochrany-osobnich-udaju-chemap.pdf"
-              target="_blank"
-              rel="noopener">Osobních údajů</a
-            ></span
-          >
-        </label>
-        <input type="text" name="web" class="formular__past" tabindex="-1" autocomplete="off" aria-hidden="true" />
-        <button type="submit" class="btn btn--zlute">Odeslat</button>
-        <p class="formular__zprava formular__zprava--ok" data-ok hidden>Děkujeme! Vaše zpráva byla úspěšně odeslána.</p>
-        <p class="formular__zprava formular__zprava--chyba" data-chyba hidden>
-          Ups! Něco se pokazilo. Zkuste formulář odeslat znovu.
-        </p>
-      </form>
-    </div>
-  </section>
-
-  <section class="kontakt kontakt--sidlo">
-    <div class="kontakt__mrizka">
-      <div class="kontakt__osoba">
-        <h2 class="h3">Sídlo společnosti</h2>
-        <p class="kontakt__jmeno">CHEMAP, spol. s r.o.</p>
-        <ul class="kontakt__seznam">
-          <li>
-            <a href="https://maps.app.goo.gl/4EtPqzZmh5h2DM2z9" target="_blank" rel="noopener">
-              <Ikona nazev="mapa" class="kontakt__ikona" />
-              <span>Dašice 475<br />533 03 Dašice</span>
-            </a>
-          </li>
-          <li>
-            <a href="mailto:chemap@chemap.cz">
-              <Ikona nazev="email" class="kontakt__ikona" />
-              chemap@chemap.cz
-            </a>
-          </li>
-        </ul>
-        <p class="kontakt__info">
-          <strong>Fakturační údaje</strong><br />
-          <strong>IČ:</strong> 25280520<br />
-          <strong>DIČ:</strong> CZ25280520
-        </p>
-        <p class="kontakt__info">
-          Firma je zapsaná v obchodním rejstříku, vedeném krajským soudem v Hradci Králové, oddíl C, vložka 12492
-        </p>
-      </div>
-      <div class="kontakt__mapa">
-        <iframe
-          src={MAPA}
-          title="Mapa – CHEMAP, Dašice 475"
-          width="100%"
-          height="450"
-          style="border:0"
-          allowfullscreen
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </section>
+  <section class="section_contact5">
+    <div class="padding-global-3">
+      <div class="container-large-3">
+        <div data-ix="grow" data-ix-delay="400" data-ix-offset="40" style="opacity:0" class="padding-section-large">
+          <div class="contact5_component">
+            <div class="w-layout-grid contact5_content">
+              <div class="contact5_content-left">
+                <div class="margin-bottom margin-medium">
+                  <div class="contact5_heading-wrapper">
+                    <div class="margin-bottom margin-small"><h2 class="heading-style-h2-2">Sídlo společnosti</h2></div>
+                    <p class="text-size-medium-3">CHEMAP, spol. s r.o.</p>
+                    <a href="https://maps.app.goo.gl/4EtPqzZmh5h2DM2z9" class="link-block-3" target="_blank" rel="noopener">Dašice 475<br />533 03 Dašice</a>
+                  </div>
+                  <div class="contact5_contact-list">
+                    <div id="w-node-ce91cee1-a658-1f1b-0e57-1850250866c4-921dae51" class="contact5_item">
+                      <a href="mailto:chemap@chemap.cz" class="link-block-3 w-inline-block">
+                        <div class="contact5_icon-wrapper">
+                          <div class="icon-embed-xsmall-3 w-embed">
+                            <svg width=" 100%" height=" 100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d={ikonaEmail} fill="currentColor" />
+                            </svg>
+                          </div>
+                        </div>
+                        <div>chemap@chemap.cz</div>
+                      </a>
+                    </div>
+                  </div>
+                  <p class="paragraph-4"><strong>Fakturační údaje</strong><br /><strong>IČ:</strong> 25280520<br /><strong>DIČ:</strong> CZ25280520</p>
+                  <p class="paragraph-4">Firma je zapsaná v obchodním rejstříku, vedeném krajským soudem v Hradci Králové, oddíl C, vložka 12492</p>
+                </div>
+              </div>
+              <div>
+                <div class="code-embed w-embed w-iframe">
+                  <iframe
+                    src={MAPA}
+                    title="Mapa – CHEMAP, Dašice 475"
+                    width="100%"
+                    height="450"
+                    style="border:0"
+                    allowfullscreen
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="background-molekula"></div>
 </Base>
-
-<script>
-  const form = document.querySelector<HTMLFormElement>('[data-formular]');
-  const ok = document.querySelector<HTMLElement>('[data-ok]');
-  const chyba = document.querySelector<HTMLElement>('[data-chyba]');
-
-  form?.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    if (!form.reportValidity()) return;
-    if (ok) ok.hidden = true;
-    if (chyba) chyba.hidden = true;
-    try {
-      const res = await fetch(form.action, { method: 'POST', body: new FormData(form) });
-      if (!res.ok) throw new Error(String(res.status));
-      form.reset();
-      if (ok) ok.hidden = false;
-      // Conversion event for Google Tag Manager (trigger: Custom Event "formular_odeslan").
-      const w = window as Window & { dataLayer?: unknown[] };
-      w.dataLayer = w.dataLayer ?? [];
-      w.dataLayer.push({ event: 'formular_odeslan' });
-    } catch {
-      if (chyba) chyba.hidden = false;
-    }
-  });
-</script>

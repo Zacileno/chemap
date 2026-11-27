@@ -1,12 +1,16 @@
 ---
 import Base from '../layouts/Base.astro';
-import StrankaHero from '../components/StrankaHero.astro';
 ---
 
-<Base title="Stránka nenalezena | CHEMAP" description="Stránka, kterou hledáte, neexistuje.">
-  <StrankaHero nadpis="Stránka nenalezena" podnadpis="Omlouváme se, tato stránka neexistuje." />
-  <section class="seznam seznam--svetly stred">
-    <a href="/" class="btn btn--cerne">Zpět na úvod</a>
-    <a href="/katalog" class="btn btn--zlute">Katalog produktů</a>
-  </section>
+<Base title="Stránka nenalezena | CHEMAP" description="Stránka, kterou hledáte, neexistuje." bodyClass="" obal={false} bezNavigace>
+  <div class="utility_component">
+    <div class="utility_form-block w-form">
+      <img src="/assets/page-not-found.svg" alt="" class="utility_image" />
+      <h3>Stránka nenalezena</h3>
+      <div class="padding-xxsmall"></div>
+      <div>Stránka, kterou hledáte, neexistuje. Vraťte se na úvodní stránku.</div>
+      <div class="padding-xxsmall"></div>
+      <a href="/" class="button w-button">Jít na hlavní stránku</a>
+    </div>
+  </div>
 </Base>

@@ -1,6 +1,5 @@
 ---
 import Base from '../layouts/Base.astro';
-import StrankaHero from '../components/StrankaHero.astro';
 import ProduktKarta from '../components/ProduktKarta.astro';
 import { produkty } from '../data/katalog';
 import { seoStranky } from '../data/seo';
@@ -11,47 +10,38 @@ const NA_STRANKU = 16;
 <Base
   title={seoStranky.katalog.title}
   description={seoStranky.katalog.description}
-  aktivni="katalog"
+  bodyClass="body-5"
   drobecky={[{ nazev: 'Katalog produktů', cesta: '/katalog' }]}
 >
-  <StrankaHero
-    nadpis="Katalog produktů"
-    podnadpis="Máte dotazy, připomínky anebo zájem o naše služby? Neváhejte nás kontaktovat!"
-  />
-
-  <section class="seznam">
-    <div class="mrizka" data-strankovani data-na-stranku={NA_STRANKU}>
-      {produkty.map((p) => <ProduktKarta produkt={p} />)}
+  <section class="section kontakty">
+    <div class="div-block kontakty">
+      <h1 class="heading-style-h1 kontakty center">katalog produktů</h1>
+      <p class="text-size-medium kontakty">Máte dotazy, připomínky anebo zájem o naše služby? Neváhejte nás kontaktovat!</p>
     </div>
-    <nav class="strankovani" aria-label="Stránkování" data-strankovani-nav hidden>
-      <a href="?strana=1" class="strankovani__btn" data-predchozi>‹ Předchozí</a>
-      <a href="?strana=2" class="strankovani__btn" data-dalsi>Další ›</a>
-    </nav>
   </section>
+  <section class="section-4">
+    <div class="div-block-22">
+      <div class="div-block-23"></div>
+      <div class="w-dyn-list">
+        <div role="list" class="collection-list-2 w-dyn-items" data-strankovani={NA_STRANKU}>
+          {produkty.map((p) => <ProduktKarta produkt={p} sIkonami />)}
+        </div>
+        <div role="navigation" aria-label="List" class="w-pagination-wrapper pagination" data-strankovani-nav>
+          <a href="?54e12fa5_page=1" aria-label="Previous Page" class="w-pagination-previous" data-predchozi>
+            <svg class="w-pagination-previous-icon" height="12px" width="12px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" transform="translate(0, 1)">
+              <path fill="none" stroke="currentColor" fill-rule="evenodd" d="M8 10L4 6l4-4"></path>
+            </svg>
+            <div class="text-block-10 w-inline-block">Předchozí</div>
+          </a>
+          <a href="?54e12fa5_page=2" aria-label="Next Page" class="w-pagination-next" data-dalsi>
+            <div class="text-block-9 w-inline-block">Další</div>
+            <svg class="w-pagination-next-icon" height="12px" width="12px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" transform="translate(0, 1)">
+              <path fill="none" stroke="currentColor" fill-rule="evenodd" d="M4 2l4 4-4 4"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="background-molekula"></div>
 </Base>
-
-<script>
-  // Shows 16 products per page like the original catalogue; without JS all products stay visible.
-  const mrizka = document.querySelector<HTMLElement>('[data-strankovani]');
-  const nav = document.querySelector<HTMLElement>('[data-strankovani-nav]');
-  const predchozi = document.querySelector<HTMLAnchorElement>('[data-predchozi]');
-  const dalsi = document.querySelector<HTMLAnchorElement>('[data-dalsi]');
-
-  if (mrizka && nav && predchozi && dalsi) {
-    const naStranku = Number(mrizka.dataset.naStranku ?? '16');
-    const karty = Array.from(mrizka.children) as HTMLElement[];
-    const pocetStran = Math.max(1, Math.ceil(karty.length / naStranku));
-    const parametr = Number(new URLSearchParams(location.search).get('strana') ?? '1');
-    const strana = Number.isInteger(parametr) ? Math.min(Math.max(parametr, 1), pocetStran) : 1;
-
-    karty.forEach((karta, i) => {
-      karta.hidden = Math.floor(i / naStranku) + 1 !== strana;
-    });
-
-    nav.hidden = pocetStran < 2;
-    predchozi.hidden = strana <= 1;
-    dalsi.hidden = strana >= pocetStran;
-    predchozi.href = `?strana=${strana - 1}`;
-    dalsi.href = `?strana=${strana + 1}`;
-  }
-</script>

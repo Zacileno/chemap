@@ -1,9 +1,20 @@
 ---
 import Base from '../layouts/Base.astro';
-import Ikona from '../components/Ikona.astro';
-import IkonaKategorie from '../components/IkonaKategorie.astro';
 import { kategorie } from '../data/katalog';
 import { seoStranky } from '../data/seo';
+import heroIkony from '../styles/hero-ikony.css?raw';
+
+/** Grid ids of the original layout (the original CSS positions these items by id). */
+const idVyhod = [
+  'w-node-_0b97b90d-b2f6-44c1-c31d-5d1ab8c2b380-90f71737',
+  'w-node-_0b97b90d-b2f6-44c1-c31d-5d1ab8c2b386-90f71737',
+  'w-node-_0b97b90d-b2f6-44c1-c31d-5d1ab8c2b38c-90f71737',
+  'w-node-_07c02462-dac5-7052-219f-407e58dfc2b1-90f71737',
+];
+const idObrazkuVpravo: Record<number, string> = {
+  1: 'w-node-_29f79f18-cdfe-0ea0-6d37-1b490c677dce-90f71737',
+  3: 'w-node-_09682d5d-dc7d-3e26-f807-a3a9c85e14bb-90f71737',
+};
 
 const vyhody = [
   'Česká firma',
@@ -12,171 +23,177 @@ const vyhody = [
   'Laboratorní zkoušky u nás i u zákazníka',
 ];
 
-interface Blok {
+const sipka =
+  'M21.84 10.11c-1.54-.84-3.57-2-5.72-3.25C12 4.49 7.37 1.82 4.1.22A2.15 2.15 0 0 0 1 2.14v19.72A2.15 2.15 0 0 0 3.16 24a2.12 2.12 0 0 0 .94-.22c3.28-1.6 7.93-4.28 12-6.64 2.14-1.24 4.17-2.4 5.71-3.25a2.12 2.12 0 0 0 0-3.79Z';
+
+interface Karta {
   nadpis: string;
   text: string;
-  /** Illustration name in /img/uvod (SVG, without extension). */
-  foto: string;
-  /** What is in the picture. */
-  alt: string;
+  obrazek: string;
+  vpravo: boolean;
 }
 
-const bloky: Blok[] = [
+const karty: Karta[] = [
   {
     nadpis: 'Organická rozpouštědla',
     text: 'Organická rozpouštědla se používají pro výrobu nátěrových hmot, lepidel i v textilním průmyslu. Zajišťují správnou konzistenci, přilnavost i efektivní aplikaci. Vyberte si z naší nabídky kvalitních chemických přípravků.',
-    foto: 'organicka-rozpoustedla',
-    alt: 'Ilustrace: Erlenmeyerova baňka s rozpouštědlem a bublinkami',
+    obrazek: '/img/orig/adobestock-391098044.jpg',
+    vpravo: false,
   },
   {
     nadpis: 'Akrylátové a vinylacetátové disperze',
     text: 'Akrylátové a vinylacetátové disperze nachází široké uplatnění v průmyslu – od výroby nátěrových hmot, lepidel a tmelů až po penetrace, šlichtování textilií a výrobu přípravků zamezujících okus stromků zvěří. Získejte vynikající výsledky s našimi produkty.',
-    foto: 'disperze',
-    alt: 'Ilustrace: kádinka s disperzí a skleněnou tyčinkou',
+    obrazek: '/img/orig/adobestock-406500817.jpg',
+    vpravo: true,
   },
   {
     nadpis: 'Slévárenské přípravky',
     text: 'Slévárenské přípravky jsou nezbytné pro nátěry forem a jader a také separaci a ředění slévárenských nátěrů, kde zajišťují hladký povrch odlitků, minimalizují vady a usnadňují proces odformování. Nabízíme kvalitní produkty, které přispívají k vyšší efektivitě a přesnosti výroby.',
-    foto: 'slevarenstvi',
-    alt: 'Ilustrace: licí pánev nalévá roztavený kov do formy',
+    obrazek: '/img/orig/adobestock-394691591.jpg',
+    vpravo: false,
   },
   {
     nadpis: 'Čistírenská rozpouštědla',
     text: 'Čistírenská rozpouštědla jsou ideální pro standardní i ekologické čištění oděvů, kde efektivně odstraňují nečistoty, oleje a tuky, aniž by poškodily textilní materiály. Prohlédněte si naši nabídku rozpouštědel pro profesionální a ekologicky šetrné čištění.',
-    foto: 'cistirny',
-    alt: 'Ilustrace: rozprašovač s čisticím rozpouštědlem',
+    obrazek: '/img/orig/adobestock-376908974.jpg',
+    vpravo: true,
   },
 ];
 ---
 
-<Base
-  title={seoStranky.uvod.title}
-  description={seoStranky.uvod.description}
-  aktivni="uvod"
->
-  <div class="molekuly-pozadi" aria-hidden="true"></div>
-
-  <section class="hero">
-    <div class="hero__text">
-      <h1 class="h1">
-        <span class="zluta">Přední český</span>{' '}výrobce a distributor{' '}
-        <span class="zluta">chemických</span>{' '}látek a přípravků
-      </h1>
-      <p class="hero__perex">Zákazníky máme na prvním místě už téměř 30 let</p>
-      <ul class="vyhody">
-        {
-          vyhody.map((v) => (
-            <li>
-              <Ikona nazev="trojuhelnik" class="vyhody__ikona" />
-              {v}
-            </li>
-          ))
-        }
-      </ul>
-      <a href="/katalog" class="btn btn--zlute">Katalog produktů</a>
-    </div>
-
-    <div class="kolo" data-kolo>
-      <div class="kolo__ikony">
-        {
-          kategorie.map((k, i) => (
-            <a
-              href={`/kategorie-produktu/${k.slug}`}
-              class="kolo__ikona"
-              style={`--i:${i}`}
-              data-kat={k.slug}
-              aria-label={k.nazev}
-            >
-              <IkonaKategorie slug={k.slug} />
-            </a>
-          ))
-        }
-      </div>
-      <div class="kolo__stred">
-        <div class="kolo__popis is-active" data-popis="vychozi">
-          <p class="kolo__nadpis">Vyberte, co vás zajímá</p>
+<Base title={seoStranky.uvod.title} description={seoStranky.uvod.description} bodyClass="body">
+  <style is:inline set:html={heroIkony}></style>
+  <section id="hero" class="section">
+    <div class="div-block-24">
+      <div class="div-block">
+        <h1 data-ix="grow" data-ix-delay="400" style="opacity:0" class="heading-style-h1">
+          Přední český <span class="text-span-3">výrobce a distributor</span> chemických látek a přípravků
+        </h1>
+        <p data-ix="grow" data-ix-delay="1000" style="opacity:0" class="text-size-medium">Zákazníky máme na prvním místě už téměř 30 let</p>
+        <div data-ix="grow" data-ix-delay="1600" style="opacity:0" class="layout16_item-list">
+          {
+            vyhody.map((v, i) => (
+              <div id={idVyhod[i]} class="layout16_item">
+                <div class="layout16_item-icon-wrapper">
+                  <div class="icon-embed-xsmall w-embed">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                      <path fill="#ffe000" d={sipka} />
+                    </svg>
+                  </div>
+                </div>
+                <div class="layout16_item-text-wrapper">
+                  <p>{v}</p>
+                </div>
+              </div>
+            ))
+          }
         </div>
-        {
-          kategorie.map((k) => (
-            <div class="kolo__popis" data-popis={k.slug}>
-              <p class="kolo__nadpis">{k.nazev}</p>
-              <p class="kolo__text">{k.perex}</p>
-            </div>
-          ))
-        }
+        <div class="margin-top margin-medium">
+          <div class="button-group">
+            <a data-ix="grow" data-ix-delay="2200" style="opacity:0" href="/katalog" class="button-2 w-button">katalog produktů</a>
+          </div>
+        </div>
+      </div>
+      <div class="div-block-2">
+        <div class="icons-wrapper" data-kolo>
+          {
+            kategorie.map((k) => (
+              <a href={`/kategorie-produktu/${k.slug}`} class="w-inline-block" aria-label={k.nazev}>
+                <div class={`icon-item ${k.kolo}`}>
+                  <img src={k.ikonaKolo} alt="" class="default-icon" />
+                  <img src={k.ikonaKoloHover} alt="" class="hover-icon" />
+                </div>
+              </a>
+            ))
+          }
+          <div class="center-text main-text">
+            <p class="paragraph-2">Vyberte, co vás zajímá</p>
+          </div>
+          {
+            kategorie.map((k) => (
+              <div class={`center-text ${k.kolo}`}>
+                <p class="paragraph-2">{k.nazev}</p>
+                <p class="paragraph-3">{k.perex}</p>
+              </div>
+            ))
+          }
+        </div>
       </div>
     </div>
   </section>
-
-  <section class="sortiment">
-    <h2 class="h2 sortiment__nadpis">
-      Široký výběr produktů pro vaše <span class="bila">efektivní podnikání</span>
-    </h2>
-    <div class="bloky">
-      {
-        bloky.map((b, i) => (
-          <div class:list={['blok', { 'blok--obraceny': i % 2 === 1 }]}>
-            <div class="blok__text">
-              <h3 class="h3">{b.nadpis}</h3>
-              <p>{b.text}</p>
-              <a href="/katalog" class="btn btn--cerne">Katalog produktů</a>
-            </div>
-            <div class="blok__foto">
-              <img src={`/img/uvod/${b.foto}.svg`} alt={b.alt} width="800" height="600" loading="lazy" />
+  <section class="section_layout408">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="padding-section-large bot5">
+          <div class="margin-bottom margin-xxlarge">
+            <div class="text-align-center">
+              <div class="max-width-large align-center">
+                <div class="margin-bottom margin-small">
+                  <h2 data-ix="grow" data-ix-delay="0" style="opacity:0" class="heading-style-h2">
+                    Široký výběr produktů pro vaše <span class="text-span-2">efektivní podnikání</span>
+                  </h2>
+                </div>
+              </div>
             </div>
           </div>
-        ))
-      }
+          <div class="w-layout-grid layout408_component" data-ix-karty>
+            {
+              karty.map((k, i) => (
+                <div class={`layout408_card card-${i + 1}`}>
+                  {k.vpravo && (
+                    <div id={idObrazkuVpravo[i]} class="layout408_image-wrapper right">
+                      <img class="layout408_image" src={k.obrazek} alt={k.nadpis} data-ix="grow" data-ix-delay="400" data-ix-offset="40" style="opacity:0" loading="lazy" />
+                    </div>
+                  )}
+                  <div class:list={['layout408_card-content', { left: !k.vpravo }]}>
+                    <div class="layout408_card-content-top">
+                      <div class="margin-bottom margin-small">
+                        <h3 class="heading-style-h3">{k.nadpis}</h3>
+                      </div>
+                      <p>{k.text}</p>
+                    </div>
+                    <div class="margin-top margin-medium">
+                      <div class="button-group">
+                        <a href="/katalog" class="button w-button">katalog produktů</a>
+                      </div>
+                    </div>
+                  </div>
+                  {!k.vpravo && (
+                    <div class="layout408_image-wrapper">
+                      <img class="layout408_image" src={k.obrazek} alt={k.nadpis} data-ix="grow" data-ix-delay="400" data-ix-offset="40" style="opacity:0" loading="lazy" />
+                    </div>
+                  )}
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
     </div>
   </section>
-
-  <section class="o-nas">
-    <div class="o-nas__text">
-      <h2 class="h1">
-        <span class="bila">O nás:</span> <span class="zluta">česká firma s tradicí</span>
-      </h2>
-      <p>
-        Jsme ryze česká firma s vlastním kapitálem, která sídlí v Dašicích. Už od roku 1997 pomáháme našim
-        zákazníkům v České republice najít ideální řešení na míru pro jejich výrobu. Klademe důraz na kvalitu
-        dodávek – jakost zboží, obalů, formální kompletnost dodávek a jejich bezchybné logistické zajištění. Jsme
-        v souladu s požadavky norem EN ISO 9001:2008 a ISO 9001:2015, přestože již nejsme držiteli certifikace.
-        Při doručování nebezpečného zboží dodržujeme pravidla ADR a využíváme k tomu vlastní dopravní prostředky.
-      </p>
-      <p>
-        Díky našim dlouholetým zkušenostem nabízíme zákazníkům nejen kvalitní produkty, ale i technickou podporu
-        a konzultace. V rámci naší politiky se snažíme maximálně uspokojit požadavky a potřeby našich odběratelů,
-        stejně tak našich zaměstnanců a ostatních zainteresovaných stran a budujeme dlouhodobé a vzájemně
-        prospěšné vztahy.
-      </p>
-      <a href="/katalog" class="btn btn--zlute">Katalog produktů</a>
+  <header class="section_header36-2">
+    <div class="w-layout-grid header36_component-2">
+      <div id="w-node-bf291484-8742-4f9a-9d45-18fdc2c6714e-90f71737" data-ix="grow" data-ix-delay="0" data-ix-offset="25" style="opacity:0" class="header36_content-2">
+        <div class="margin-bottom margin-small">
+          <h1 class="heading-style-h1-2"><span class="text-span-4">O nás:</span> česká firma s tradicí</h1>
+        </div>
+        <p class="text-size-medium-2">
+          Jsme ryze česká firma s vlastním kapitálem, která sídlí v Dašicích. Už od roku 1997 pomáháme našim zákazníkům v České republice najít ideální
+          řešení na míru pro jejich výrobu. Klademe důraz na kvalitu dodávek – jakost zboží, obalů, formální kompletnost dodávek a jejich bezchybné
+          logistické zajištění. Jsme v souladu s požadavky norem EN ISO 9001:2008 a ISO 9001:2015, přestože již nejsme držiteli certifikace. Při
+          doručování nebezpečného zboží dodržujeme pravidla ADR a využíváme k tomu vlastní dopravní prostředky.<br /><br />Díky našim dlouholetým
+          zkušenostem nabízíme zákazníkům nejen kvalitní produkty, ale i technickou podporu a konzultace. V rámci naší politiky se snažíme maximálně
+          uspokojit požadavky a potřeby našich odběratelů, stejně tak našich zaměstnanců a ostatních zainteresovaných stran a budujeme dlouhodobé a
+          vzájemně prospěšné vztahy.<br />
+        </p>
+        <div class="margin-top margin-medium">
+          <div class="button-group"><a href="/katalog" class="button-2 w-button">katalog produktů</a></div>
+        </div>
+      </div>
+      <div data-ix="slide-right" data-ix-delay="1000" data-ix-offset="25" style="opacity:0" class="header36_image-wrapper-2">
+        <img src="/img/orig/adobestock-1057381803.jpg" alt="Laboratorní baňka se žlutou kapalinou" class="header36_image" />
+      </div>
     </div>
-    <div class="o-nas__foto">
-      <img
-        src="/img/uvod/o-nas.webp"
-        srcset="/img/uvod/o-nas-600.webp 500w, /img/uvod/o-nas.webp 1000w"
-        sizes="(max-width: 767px) 100vw, 50vw"
-        alt="Sklad chemických látek – sudy a IBC kontejnery"
-        width="1000"
-        height="1250"
-        loading="lazy"
-      />
-    </div>
-  </section>
+  </header>
+  <div class="background-molekula"></div>
 </Base>
-
-<script>
-  const kolo = document.querySelector<HTMLElement>('[data-kolo]');
-  if (kolo) {
-    const popisy = kolo.querySelectorAll<HTMLElement>('[data-popis]');
-    const ukaz = (klic: string): void => {
-      popisy.forEach((p) => p.classList.toggle('is-active', p.dataset.popis === klic));
-    };
-    kolo.querySelectorAll<HTMLElement>('[data-kat]').forEach((ikona) => {
-      const klic = ikona.dataset.kat ?? 'vychozi';
-      ikona.addEventListener('mouseenter', () => ukaz(klic));
-      ikona.addEventListener('focus', () => ukaz(klic));
-      ikona.addEventListener('mouseleave', () => ukaz('vychozi'));
-      ikona.addEventListener('blur', () => ukaz('vychozi'));
-    });
-  }
-</script>

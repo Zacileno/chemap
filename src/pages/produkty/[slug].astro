@@ -2,11 +2,10 @@
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import CtaPoradit from '../../components/CtaPoradit.astro';
-import Ikona from '../../components/Ikona.astro';
-import IkonaKategorie from '../../components/IkonaKategorie.astro';
 import { najdiKategorii, produkty } from '../../data/katalog';
 import type { Produkt } from '../../data/katalog';
-import { altFoto, descriptionProduktu, titleProduktu } from '../../data/seo';
+import { descriptionProduktu, titleProduktu } from '../../data/seo';
+import popisy from '../../data/popisy.json';
 
 export const getStaticPaths = (() =>
   produkty.map((p) => ({ params: { slug: p.slug }, props: { produkt: p } }))) satisfies GetStaticPaths;
@@ -18,105 +17,132 @@ interface Props {
 const { produkt } = Astro.props;
 const kategorieProduktu = produkt.vsechnyKategorie.map(najdiKategorii);
 const hlavniKategorie = najdiKategorii(produkt.kategorie);
-const maUdaje = produkt.zakladniUdaje.length > 0;
-const maBaleni = produkt.baleni.length > 0;
+const popisHtml = (popisy as Record<string, string>)[produkt.slug] ?? '';
+
+/** Basic data rows in the fixed order of the original template. */
+const POLE_UDAJU = ['ADR', 'ES', 'UN', 'CAS', 'Concentrate (%)', 'Indexové číslo', 'Velikost částic'];
+const udaje = POLE_UDAJU.map((nazev) => ({ nazev, hodnota: produkt.zakladniUdaje.find((u) => u.nazev === nazev)?.hodnota ?? '' })).filter(
+  (u) => u.hodnota !== '',
+);
+/** Text classes of the packaging rows as on the original (text-block-11 … 15). */
+const tridyObalu = ['text-block-11', 'text-block-12', 'text-block-13', 'text-block-14', 'text-block-15'];
+
+/** Download slots of the original template; only filled ones are shown. */
+const SLOTY = ['Technická specifikace', 'Bezpečnostní list', 'Směrné receptury', 'Doporučení'];
+const soubory = SLOTY.map((nazev) => produkt.soubory.find((s) => s.nazev === nazev)).filter((s) => s !== undefined);
 ---
 
 <Base
   title={titleProduktu(produkt)}
   description={descriptionProduktu(produkt)}
-  aktivni="katalog"
+  bodyClass="body-3"
+  obal={false}
   drobecky={[
     { nazev: 'Katalog produktů', cesta: '/katalog' },
     { nazev: hlavniKategorie.nazev, cesta: `/kategorie-produktu/${hlavniKategorie.slug}` },
     { nazev: produkt.nazev, cesta: `/produkty/${produkt.slug}` },
   ]}
 >
-  <section class="produkt-hero">
-    <div class="produkt-hero__in">
-      <div class="produkt-hero__text">
-        <div class="stitky">
-          {
-            kategorieProduktu.map((kat) => (
-              <a href={`/kategorie-produktu/${kat.slug}`} class="stitek">
-                <span class="ikona-kruh ikona-kruh--mala">
-                  <IkonaKategorie slug={kat.slug} />
-                </span>
-                {kat.nazev}
-              </a>
-            ))
-          }
+  <section class="product-hero">
+    <div class="div-block-16">
+      <div class="div-block-4">
+        <div class="collection-list-wrapper-2 w-dyn-list">
+          <div role="list" class="collection-list-4 w-dyn-items w-row">
+            {
+              kategorieProduktu.map((k) => (
+                <div role="listitem" class="collection-item-2 w-dyn-item w-col w-col-6">
+                  <a href={`/kategorie-produktu/${k.slug}`} class="w-inline-block">
+                    <div class="div-block-6">
+                      <img src={k.ikona} loading="lazy" alt="" class="image-2" />
+                      <div class="text-block-4">{k.nazev}</div>
+                    </div>
+                  </a>
+                </div>
+              ))
+            }
+          </div>
         </div>
-        <h1 class="h1 zluta">{produkt.nazev}</h1>
-        {produkt.popis.map((odstavec) => <p>{odstavec}</p>)}
+        <h1 class="heading-style-h1 kontakty">{produkt.nazev}</h1>
+        {
+          popisHtml ? (
+            <div class="rich-text-block w-richtext" set:html={popisHtml} />
+          ) : (
+            <div class="rich-text-block w-dyn-bind-empty w-richtext" />
+          )
+        }
       </div>
-      <div class="produkt-hero__foto">
-        <img src={produkt.foto} alt={altFoto(produkt)} width="1200" height="900" />
+      <div class="div-block-5">
+        <a href={produkt.foto} class="lightbox-link w-inline-block w-lightbox" data-lightbox aria-label={`Zvětšit obrázek: ${produkt.nazev}`}>
+          <img
+            src={produkt.foto}
+            srcset={`${produkt.fotoMala} 500w, ${produkt.foto} 1536w`}
+            sizes="(max-width: 767px) 92vw, 45vw"
+            alt={produkt.nazev}
+            class="image"
+          />
+        </a>
       </div>
     </div>
   </section>
-
-  {
-    (maUdaje || maBaleni) && (
-      <section class="tabulky">
-        {maUdaje && (
-          <table class="tabulka">
-            <thead>
-              <tr>
-                <th colspan="2">Základní údaje</th>
-              </tr>
-            </thead>
-            <tbody>
-              {produkt.zakladniUdaje.map((u) => (
-                <tr>
-                  <td>{u.nazev}</td>
-                  <td class="vpravo">{u.hodnota}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        )}
-        {maBaleni && (
-          <table class="tabulka tabulka--obal">
-            <thead>
-              <tr>
-                <th>Obal</th>
-                <th class="stred">Objem obalu</th>
-                <th class="vpravo">Množství v obalu</th>
-              </tr>
-            </thead>
-            <tbody>
-              {produkt.baleni.map((b) => (
-                <tr>
-                  <td>{b.obal}</td>
-                  <td class="stred">{b.objem}</td>
-                  <td class="vpravo">{b.mnozstvi}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        )}
-      </section>
-    )
-  }
-
-  {
-    produkt.soubory.length > 0 && (
-      <section class="soubory">
-        <h3 class="h3">Soubory ke stažení</h3>
-        <ul class="soubory__seznam">
-          {produkt.soubory.map((s) => (
-            <li>
-              <a href={s.url} target="_blank" rel="noopener">
-                <Ikona nazev="pdf" class="soubory__ikona" />
-                <span>{s.nazev}</span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </section>
-    )
-  }
-
+  <section class="section-2">
+    <div class="div-block-17">
+      <div class:list={['div-block-7 zakladni', { 'w-condition-invisible': udaje.length === 0 }]}>
+        <div class="div-block-9"><div class="text-block-5">Základní údaje</div></div>
+        {
+          udaje.map((u) => (
+            <div class="property">
+              <div class="div-block-11">
+                <div>{u.nazev}</div>
+              </div>
+              <div class="div-block-12">
+                <div class="text-block-6">{u.hodnota}</div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+      <div class:list={['div-block-7 obal', { 'w-condition-invisible': produkt.baleni.length === 0 }]}>
+        <div class="div-block-9">
+          <div class="div-block-13"><div class="text-block-5">Obal</div></div>
+          <div class="div-block-15">
+            <div class="text-block-5"><strong class="bold-text">Objem obalu</strong></div>
+          </div>
+          <div class="div-block-14">
+            <div class="text-block-5"><strong class="bold-text-2">Množství v obalu</strong></div>
+          </div>
+        </div>
+        {
+          produkt.baleni.map((b, i) => (
+            <div class="property">
+              <div class="div-block-11 w33">
+                <div class:list={[tridyObalu[i] ?? 'text-block-15', { 'w-dyn-bind-empty': !b.obal }]}>{b.obal}</div>
+              </div>
+              <div class="div-block-12 w33">
+                <div class:list={['text-block-6 center', { 'w-dyn-bind-empty': !b.objem }]}>{b.objem}</div>
+              </div>
+              <div class="div-block-12 w33">
+                <div class:list={['text-block-6', { 'w-dyn-bind-empty': !b.mnozstvi }]}>{b.mnozstvi}</div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="section-2 two">
+    <div class="div-block-17 new">
+      <h3 class="heading-2">Soubory ke stažení</h3>
+      <div class="div-block-20">
+        {
+          soubory.map((s) => (
+            <a href={s.url} class="link-block-4 w-inline-block" target="_blank" rel="noopener">
+              <img src="/img/orig/pdf-ikona.svg" loading="lazy" alt="" class="image-5" />
+              <div class="text-block-7">{s.nazev}</div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
   <CtaPoradit />
 </Base>
